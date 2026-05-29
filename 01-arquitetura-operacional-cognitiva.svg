@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900">
+<defs>
+<linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+<stop offset="0%" stop-color="#06101f"/><stop offset="100%" stop-color="#101827"/>
+</linearGradient>
+<filter id="shadow"><feDropShadow dx="0" dy="8" stdDeviation="10" flood-color="#000" flood-opacity=".35"/></filter>
+<marker id="arrow" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">
+<path d="M2,2 L10,6 L2,10 Z" fill="#38bdf8"/></marker>
+<style>
+.bg{fill:url(#bg)} .title{font-family:Arial,sans-serif;font-size:46px;font-weight:800;fill:#f8fafc}
+.sub{font-family:Arial,sans-serif;font-size:22px;fill:#cbd5e1}
+.h{font-family:Arial,sans-serif;font-size:23px;font-weight:800;fill:#e2e8f0}
+.t{font-family:Arial,sans-serif;font-size:21px;font-weight:700;fill:#f8fafc}
+.s{font-family:Arial,sans-serif;font-size:17px;fill:#cbd5e1}
+.xs{font-family:Arial,sans-serif;font-size:14px;fill:#94a3b8}
+.card{fill:#111c31;stroke:#334155;stroke-width:1.5;filter:url(#shadow)}
+.blue{fill:#0f2342;stroke:#38bdf8;stroke-width:2.2;filter:url(#shadow)}
+.green{fill:#10251d;stroke:#34d399;stroke-width:2.2;filter:url(#shadow)}
+.purple{fill:#1c1838;stroke:#a78bfa;stroke-width:2.2;filter:url(#shadow)}
+.orange{fill:#2a1b0b;stroke:#f59e0b;stroke-width:2.2;filter:url(#shadow)}
+.red{fill:#2a1016;stroke:#fb7185;stroke-width:2.2;filter:url(#shadow)}
+.line{stroke:#38bdf8;stroke-width:3;fill:none;marker-end:url(#arrow)}
+.muted{stroke:#94a3b8;stroke-width:2.2;fill:none;marker-end:url(#arrow);opacity:.8}
+.chip{fill:#0b1220;stroke:#475569;stroke-width:1}
+.chipt{font-family:Arial,sans-serif;font-size:15px;fill:#cbd5e1}
+</style>
+</defs>
+<rect class="bg" width="1600" height="900"/><circle cx="1430" cy="110" r="250" fill="#1d4ed8" opacity=".12"/><circle cx="180" cy="790" r="270" fill="#7c3aed" opacity=".10"/><text x="80" y="78" class="title">Arquitetura Operacional Cognitiva</text><text x="80" y="126" class="sub">Inferência, decisão, conhecimento, governança e operação como um sistema integrado</text><rect x="48" y="150" width="1504" height="680" rx="38" fill="none" stroke="#38bdf8" stroke-width="2.6" stroke-dasharray="12 10"/><text x="95" y="190" class="h">Governança Cognitiva Transversal</text><rect x="95" y="207" width="90" height="32" rx="16" class="chip"/><text x="108" y="229" class="chipt">security</text><rect x="245" y="207" width="90" height="32" rx="16" class="chip"/><text x="258" y="229" class="chipt">policy</text><rect x="395" y="207" width="90" height="32" rx="16" class="chip"/><text x="408" y="229" class="chipt">audit</text><rect x="545" y="207" width="90" height="32" rx="16" class="chip"/><text x="558" y="229" class="chipt">FinOps</text><rect x="695" y="207" width="114" height="32" rx="16" class="chip"/><text x="708" y="229" class="chipt">sovereignty</text><rect x="845" y="207" width="90" height="32" rx="16" class="chip"/><text x="858" y="229" class="chipt">quality</text><rect x="995" y="207" width="98" height="32" rx="16" class="chip"/><text x="1008" y="229" class="chipt">lifecycle</text><rect x="190" y="275" width="1220" height="58" rx="22" class="blue"/><text x="214" y="317" class="t">Experiência Cognitiva</text><text x="610" y="312" class="s">open-webui-custom</text><text x="980" y="312" class="xs">chats · hubs · workflows</text><line x1="800" y1="335" x2="800" y2="347" class="line"/><rect x="190" y="353" width="1220" height="58" rx="22" class="green"/><text x="214" y="395" class="t">Execução Cognitiva</text><text x="610" y="390" class="s">MAS-HITL / agents</text><text x="980" y="390" class="xs">orquestração · HITL · validação</text><line x1="800" y1="413" x2="800" y2="425" class="line"/><rect x="190" y="431" width="1220" height="58" rx="22" class="purple"/><text x="214" y="473" class="t">Decisão Cognitiva</text><text x="610" y="468" class="s">DIR</text><text x="980" y="468" class="xs">estado cognitivo · policy · scoring</text><line x1="800" y1="491" x2="800" y2="503" class="line"/><rect x="190" y="509" width="1220" height="58" rx="22" class="orange"/><text x="214" y="551" class="t">Inferência Cognitiva</text><text x="610" y="546" class="s">OR-OmniRouter</text><text x="980" y="546" class="xs">aliases · cascatas · fallback</text><line x1="800" y1="569" x2="800" y2="581" class="line"/><rect x="190" y="587" width="1220" height="58" rx="22" class="card"/><text x="214" y="629" class="t">Provedores de Inferência</text><text x="610" y="624" class="s">local · free · paid · premium</text><text x="980" y="624" class="xs">LLMs · SLMs · APIs</text><line x1="800" y1="647" x2="800" y2="659" class="line"/><rect x="190" y="665" width="1220" height="58" rx="22" class="blue"/><text x="214" y="707" class="t">Conhecimento Cognitivo</text><text x="610" y="702" class="s">PKGL</text><text x="980" y="702" class="xs">proveniência · lifecycle · distribuição</text><line x1="800" y1="725" x2="800" y2="737" class="line"/><rect x="190" y="743" width="1220" height="58" rx="22" class="red"/><text x="214" y="785" class="t">Inteligência Operacional</text><text x="610" y="780" class="s">HYDRA-OBS</text><text x="980" y="780" class="xs">LLMOps · AgentOps · KnowledgeOps</text><text x="95" y="790" class="s">Uso da IA Generativa = inferência + decisão + conhecimento + governança + operação</text></svg>
