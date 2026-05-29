@@ -4,6 +4,10 @@
 
 > *Beyond models: governed cognitive operations.*
 
+<p align="center">
+  <img src="./assets/aoc_8camadas_didatico.jpeg" alt="Arquitetura Operacional Cognitiva em 8 camadas" width="100%"/>
+</p>
+
 A **1-AI-Ecosystem-Lab** organiza projetos, padrões e componentes para construir sistemas de IA que vão além do uso isolado de modelos. O foco é estruturar uma arquitetura modular capaz de operar inferência, agentes, conhecimento, governança e observabilidade de forma integrada.
 
 ---
@@ -87,35 +91,6 @@ A arquitetura combina:
 | **Governança Cognitiva** | lifecycle + soberania |
 
 A arquitetura considera que sistemas de IA maduros não apenas processam dados. Eles precisam capturar, validar, consolidar e distribuir conhecimento com rastreabilidade.
-
----
-
-## Visão em camadas
-
-```text
-Humans / Systems
-        ↓
-Experience Layer
-(open-webui-custom)
-        ↓
-Cognitive Execution Layer
-(MAS-HITL / agents)
-        ↓
-Cognitive Decision Layer
-(DIR)
-        ↓
-Inference Control Layer
-(OR-OmniRouter)
-        ↓
-Inference Providers
-(local / free / paid / premium)
-        ↓
-Knowledge Governance Layer
-(PKGL)
-        ↓
-Operational Intelligence Layer
-(HYDRA-OBS / Observability / FinOps / AgentOps)
-```
 
 ---
 
