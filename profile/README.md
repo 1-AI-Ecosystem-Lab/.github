@@ -5,7 +5,7 @@
 > *Beyond models: governed cognitive operations.*
 
 <p align="center">
-  <img src="./assets/aoc_8camadas_didatico.jpeg" alt="Arquitetura Operacional Cognitiva em 8 camadas" width="100%"/>
+  <img src="./assets/01-arquitetura-operacional-cognitiva.svg" alt="Arquitetura Operacional Cognitiva em 8 camadas" width="100%"/>
 </p>
 
 A **1-AI-Ecosystem-Lab** organiza projetos, padrões e componentes para construir sistemas de IA que vão além do uso isolado de modelos. O foco é estruturar uma arquitetura modular capaz de operar inferência, agentes, conhecimento, governança e observabilidade de forma integrada.
@@ -102,7 +102,7 @@ A arquitetura considera que sistemas de IA maduros não apenas processam dados. 
 | **Cognitive Execution Layer** | `MAS-HITL` | Plataforma multiagente governada com validação, handoff humano e analytics. |
 | **Cognitive Decision Layer** | `DIR` | Motor de roteamento cognitivo dinâmico para classificar estados, aplicar políticas e selecionar rotas. |
 | **Inference Control Layer** | `OR-OmniRouter` | Camada de inferência contínua, aliases, cascatas, fallback e controle de custos. |
-| **Knowledge Governance Layer** | `PKGL` | Governança de conhecimento, proveniência, lifecycle, consolidação e distribuição cross-agent. |
+| **Cognitive Continuity Layer** | `NEXUS` | Infraestrutura de continuidade cognitiva: Cognitive Objects, Fabrics, lifecycle, proveniência e distribuição cross-agent. |
 | **Operational Intelligence Layer** | `HYDRA-OBS` | Observabilidade cognitiva, LLMOps, AgentOps, FinOps, auditoria, drift e qualidade. |
 
 ---
@@ -122,14 +122,14 @@ flowchart TD
 
     OR --> P[Inference Providers<br/>local · free · paid · premium]
 
-    OW --> PKGL[PKGL<br/>Governed Cognitive Memory Infrastructure]
-    MAS --> PKGL
-    DIR --> PKGL
+    OW --> NEXUS[NEXUS<br/>Cognitive Continuity Infrastructure]
+    MAS --> NEXUS
+    DIR --> NEXUS
     OR --> OBS[HYDRA-OBS<br/>Cognitive Observability]
     MAS --> OBS
-    PKGL --> OBS
+    NEXUS --> OBS
 
-    PKGL --> OW
+    NEXUS --> OW
 ```
 
 ---
