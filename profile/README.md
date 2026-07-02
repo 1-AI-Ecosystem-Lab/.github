@@ -98,12 +98,14 @@ A arquitetura considera que sistemas de IA maduros não apenas processam dados. 
 
 | Camada | Projeto | Papel |
 | --- | --- | --- |
-| **Experience Layer** | `open-webui-custom` | Hub de experiência cognitiva para chats, agentes, workflows, conhecimento e observabilidade. |
-| **Cognitive Execution Layer** | `MAS-HITL` | Plataforma multiagente governada com validação, handoff humano e analytics. |
-| **Cognitive Decision Layer** | `DIR` | Motor de roteamento cognitivo dinâmico para classificar estados, aplicar políticas e selecionar rotas. |
-| **Inference Control Layer** | `OR-OmniRouter` | Camada de inferência contínua, aliases, cascatas, fallback e controle de custos. |
-| **Cognitive Continuity Layer** | `NEXUS` | Infraestrutura de continuidade cognitiva: Cognitive Objects, Fabrics, lifecycle, proveniência e distribuição cross-agent. |
-| **Operational Intelligence Layer** | `HYDRA-OBS` | Observabilidade cognitiva, LLMOps, AgentOps, FinOps, auditoria, drift e qualidade. |
+| **Experience Layer** | [`open-webui-custom`](https://github.com/1-AI-Ecosystem-Lab/open-webui-custom) | Hub de experiência cognitiva para chats, agentes, workflows, conhecimento e observabilidade. |
+| **Agent Platform Layer** | [`ARGO`](https://github.com/1-AI-Ecosystem-Lab/argo-agent-platform) | Plataforma multiagente governada com HITL configurável, compilador declarativo e avaliação contínua por projeto. |
+| **Capability OS Layer** | [`Forge`](https://github.com/1-AI-Ecosystem-Lab/forge) | OS de capacidades — publica, descobre, governa e compõe qualquer elemento executável da ACO. |
+| **Cognitive Decision Layer** | [`DIR`](https://github.com/1-AI-Ecosystem-Lab/dir-dynamic-inference-routing) | Motor de roteamento cognitivo dinâmico com scoring multiobjetivo de custo, qualidade e risco. |
+| **Inference Control Layer** | [`OR-OmniRouter`](https://github.com/1-AI-Ecosystem-Lab/or-omni-router) | Camada de inferência contínua com fallback entre tiers local, free cloud e paid. |
+| **Data Discovery Layer** | [`DataHunter`](https://github.com/1-AI-Ecosystem-Lab/DataHunter) | Pipeline agêntico de descoberta e curadoria de dados técnicos com scoring de autoridade e proveniência. |
+| **Cognitive Continuity Layer** | [`NEXUS`](https://github.com/1-AI-Ecosystem-Lab/Nexus-congnitive-continuity-infraestructure) | Infraestrutura de continuidade cognitiva: Cognitive Objects, Fabrics, lifecycle, proveniência e distribuição cross-agent. |
+| **Operational Intelligence Layer** | [`Hydra`](https://github.com/1-AI-Ecosystem-Lab/hydra) | Observabilidade cognitiva, LLMOps, AgentOps, FinOps, auditoria, drift e qualidade. |
 
 ---
 
@@ -112,21 +114,24 @@ A arquitetura considera que sistemas de IA maduros não apenas processam dados. 
 ```mermaid
 flowchart TD
     U[Usuários / Sistemas] --> OW[open-webui-custom<br/>Unified Cognitive Experience Hub]
-    U --> MAS[MAS-HITL<br/>Governed Multi-Agent Execution]
+    U --> ARGO[ARGO<br/>Governed Multi-Agent Execution]
 
     OW --> DIR[DIR<br/>Dynamic Cognitive Routing Engine]
-    MAS --> DIR
+    ARGO --> DIR
 
     DIR --> OR[OR-OmniRouter<br/>Operational Continuous Inference Layer]
     OW --> OR
 
     OR --> P[Inference Providers<br/>local · free · paid · premium]
 
+    ARGO --> FORGE[Forge<br/>Capability OS]
+
+    DH[DataHunter<br/>Data Discovery] --> NEXUS
     OW --> NEXUS[NEXUS<br/>Cognitive Continuity Infrastructure]
-    MAS --> NEXUS
+    ARGO --> NEXUS
     DIR --> NEXUS
-    OR --> OBS[HYDRA-OBS<br/>Cognitive Observability]
-    MAS --> OBS
+    OR --> OBS[Hydra<br/>Cognitive Observability]
+    ARGO --> OBS
     NEXUS --> OBS
 
     NEXUS --> OW
