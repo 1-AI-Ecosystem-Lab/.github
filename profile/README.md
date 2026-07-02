@@ -54,29 +54,6 @@ A arquitetura combina:
 | **Política** | Critério operacional: local-first, cost-first, quality-first, privacy-first, premium-only, dual-pass, audit-required ou low-latency. |
 | **Agente / MAS** | Execução de um ou mais papéis cognitivos: planner, coder, reviewer, researcher, support ou orchestrator. |
 | **Estado Cognitivo** | Condição atual da tarefa: simple, complex, sensitive, critical, uncertain, long-context, tool-use ou exploratory. |
-| **Alias** | Contrato reutilizável de inferência. Pode ser funcional, cognitivo ou híbrido. |
-
-### Exemplos de aliases
-
-**Aliases funcionais** — consumidos como se fossem modelos:
-
-- `coding-agent`
-- `simple-chat`
-- `greeting`
-- `summarizer`
-- `reviewer`
-- `debug-agent`
-
-**Aliases cognitivos** — usados para seleção dinâmica por estado:
-
-- `state-simple`
-- `state-complex`
-- `state-sensitive`
-- `state-critical`
-- `state-long-context`
-- `state-tool-use`
-- `state-low-cost`
-- `state-high-quality`
 
 ---
 
@@ -96,77 +73,52 @@ A arquitetura considera que sistemas de IA maduros não apenas processam dados. 
 
 ## Ecossistema de projetos
 
-| Camada | Projeto | Papel |
-| --- | --- | --- |
-| **Experience Layer** | [`open-webui-custom`](https://github.com/1-AI-Ecosystem-Lab/open-webui-custom) | Hub de experiência cognitiva para chats, agentes, workflows, conhecimento e observabilidade. |
-| **Agent Platform Layer** | [`ARGO`](https://github.com/1-AI-Ecosystem-Lab/argo-agent-platform) | Plataforma multiagente governada com HITL configurável, compilador declarativo e avaliação contínua por projeto. |
-| **Capability OS Layer** | [`Forge`](https://github.com/1-AI-Ecosystem-Lab/forge) | OS de capacidades — publica, descobre, governa e compõe qualquer elemento executável da ACO. |
-| **Cognitive Decision Layer** | [`DIR`](https://github.com/1-AI-Ecosystem-Lab/dir-dynamic-inference-routing) | Motor de roteamento cognitivo dinâmico com scoring multiobjetivo de custo, qualidade e risco. |
-| **Inference Control Layer** | [`OR-OmniRouter`](https://github.com/1-AI-Ecosystem-Lab/or-omni-router) | Camada de inferência contínua com fallback entre tiers local, free cloud e paid. |
-| **Data Discovery Layer** | [`DataHunter`](https://github.com/1-AI-Ecosystem-Lab/DataHunter) | Pipeline agêntico de descoberta e curadoria de dados técnicos com scoring de autoridade e proveniência. |
-| **Cognitive Continuity Layer** | [`NEXUS`](https://github.com/1-AI-Ecosystem-Lab/Nexus-congnitive-continuity-infraestructure) | Infraestrutura de continuidade cognitiva: Cognitive Objects, Fabrics, lifecycle, proveniência e distribuição cross-agent. |
-| **Operational Intelligence Layer** | [`Hydra`](https://github.com/1-AI-Ecosystem-Lab/hydra) | Observabilidade cognitiva, LLMOps, AgentOps, FinOps, auditoria, drift e qualidade. |
+| Camada | Projeto | Papel | Status |
+| --- | --- | --- | --- |
+| **Experience Layer** | [`open-webui-custom`](https://github.com/1-AI-Ecosystem-Lab/open-webui-custom) | Hub de experiência cognitiva para chats, agentes, workflows, conhecimento e observabilidade. | `estável` |
+| **Agent Platform Layer** | [`ARGO`](https://github.com/1-AI-Ecosystem-Lab/argo-agent-platform) | Plataforma multiagente governada com HITL configurável, compilador declarativo e avaliação contínua por projeto. | `ativo` |
+| **Capability OS Layer** | [`Forge`](https://github.com/1-AI-Ecosystem-Lab/forge) | OS de capacidades — publica, descobre, governa e compõe qualquer elemento executável da ACO. | `em desenvolvimento` |
+| **Cognitive Decision Layer** | [`DIR`](https://github.com/1-AI-Ecosystem-Lab/dir-dynamic-inference-routing) | Motor de roteamento cognitivo dinâmico com scoring multiobjetivo de custo, qualidade e risco. | `em desenvolvimento` |
+| **Inference Control Layer** | [`OR-OmniRouter`](https://github.com/1-AI-Ecosystem-Lab/or-omni-router) | Camada de inferência contínua com fallback entre tiers local, free cloud e paid. | `beta` |
+| **Data Discovery Layer** | [`DataHunter`](https://github.com/1-AI-Ecosystem-Lab/DataHunter) | Pipeline agêntico de descoberta e curadoria de dados técnicos com scoring de autoridade e proveniência. | `beta` |
+| **Cognitive Continuity Layer** | [`NEXUS`](https://github.com/1-AI-Ecosystem-Lab/Nexus-congnitive-continuity-infraestructure) | Infraestrutura de continuidade cognitiva: Cognitive Objects, Fabrics, lifecycle, proveniência e distribuição cross-agent. | `ativo` |
+| **Operational Intelligence Layer** | [`Hydra`](https://github.com/1-AI-Ecosystem-Lab/hydra) | Observabilidade cognitiva, LLMOps, AgentOps, FinOps, auditoria, drift e qualidade. | `em desenvolvimento` |
+
+---
+
+## Por onde começar
+
+| Objetivo | Projeto |
+| --- | --- |
+| Consumir LLMs com resiliência e fallback automático | [`OR-OmniRouter`](https://github.com/1-AI-Ecosystem-Lab/or-omni-router) |
+| Criar e operar agentes com supervisão humana | [`ARGO`](https://github.com/1-AI-Ecosystem-Lab/argo-agent-platform) |
+| Descobrir datasets e evidências técnicas | [`DataHunter`](https://github.com/1-AI-Ecosystem-Lab/DataHunter) |
+| Ter uma interface para conversar com qualquer LLM | [`open-webui-custom`](https://github.com/1-AI-Ecosystem-Lab/open-webui-custom) |
+| Preservar conhecimento entre sessões e agentes | [`NEXUS`](https://github.com/1-AI-Ecosystem-Lab/Nexus-congnitive-continuity-infraestructure) |
 
 ---
 
 ## Mapa geral
 
-```mermaid
-flowchart TD
-    U[Usuários / Sistemas] --> OW[open-webui-custom<br/>Unified Cognitive Experience Hub]
-    U --> ARGO[ARGO<br/>Governed Multi-Agent Execution]
-
-    OW --> DIR[DIR<br/>Dynamic Cognitive Routing Engine]
-    ARGO --> DIR
-
-    DIR --> OR[OR-OmniRouter<br/>Operational Continuous Inference Layer]
-    OW --> OR
-
-    OR --> P[Inference Providers<br/>local · free · paid · premium]
-
-    ARGO --> FORGE[Forge<br/>Capability OS]
-
-    DH[DataHunter<br/>Data Discovery] --> NEXUS
-    OW --> NEXUS[NEXUS<br/>Cognitive Continuity Infrastructure]
-    ARGO --> NEXUS
-    DIR --> NEXUS
-    OR --> OBS[Hydra<br/>Cognitive Observability]
-    ARGO --> OBS
-    NEXUS --> OBS
-
-    NEXUS --> OW
 ```
+                                                                           ┌────────────────┐   ┌────────────┐
+                                                                           │      DIR       │   │            │
+┌──────────┐   ┌──────────────────────────────────────────────────────┐   │  Cognitive     │   │ Provedores │
+│          │   │  Arquitetura                                          │◀─▶│  Decision      │◀─▶│            │
+│          │   │  ┌────────────────────────────────────────────────┐  │   ├────────────────┤   │  local     │
+│ Usuários │◀─▶│  │      Experience Layer · open-webui-custom       │  │   │  OR-OmniRouter │   │  free cloud│
+│          │   │  └────────────────────────────────────────────────┘  │   │  Inference     │   │  paid      │
+└──────────┘   │                       ↑ agents                        │   └────────────────┘   └────────────┘
+               │  ┌─────────────────────────┐  ┌──────────────────────┐  │
+               │  │  ARGO                   │  │  NEXUS               │  │◀─▶┌──────────────────────────────┐
+               │  │  Agent Platform         │  │  Cognitive Continuity │  │   │  Forge · Capability OS       │
+               │  └─────────────────────────┘  └──────────────────────┘◀─┼─┐ │  ◀─▶ sistemas · agentes ext.│
+               └──────────────────────────────────────────────────────────┘ │ └──────────────────────────────┘
+                                                                              └─ DataHunter  ◀──  Web · APIs
 
----
-
-## Dois modos de uso do OmniRouter
-
-```mermaid
-flowchart TD
-
-    subgraph M1[Modo 1 — Uso direto / funcional]
-        A1[OpenWebUI / IDE / App] --> B1[Alias funcional<br/>coding-agent · simple-chat · summarizer]
-    end
-
-    subgraph M2[Modo 2 — Uso dinâmico / cognitivo]
-        A2[Usuário / Agente] --> B2[DIR]
-        B2 --> C2[Classificação cognitiva<br/>simple · complex · sensitive · critical]
-        C2 --> D2[Alias cognitivo<br/>state-simple · state-sensitive · state-critical]
-    end
-
-    B1 --> OR[OmniRouter<br/>Inference Control Plane]
-    D2 --> OR
-
-    OR --> P[Policy Engine<br/>custo · latência · privacidade · qualidade]
-    P --> F[Cascata operacional<br/>local → free → paid → premium]
-
-    F --> L[Modelos locais<br/>LM Studio · Ollama · vLLM]
-    F --> C[Provedores cloud/free<br/>Groq · Gemini · Mistral]
-    F --> R[Fallback pago/premium<br/>DeepSeek · Claude · OpenAI]
-
-    L --> T[Resposta + telemetria]
-    C --> T
-    R --> T
+┌────────────────────────────────────────────────────────────────────────────────────────────────────────────┐
+│   Hydra · Observability & Operational Intelligence               ◀── logs de todos os componentes         │
+└────────────────────────────────────────────────────────────────────────────────────────────────────────────┘
 ```
 
 ---
