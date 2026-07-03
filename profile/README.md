@@ -80,36 +80,34 @@ O vocabulário abaixo é a base sobre a qual o **DIR** toma decisões de roteame
 | **Agente / MAS** | Execução de um ou mais papéis cognitivos: planner, coder, reviewer, researcher, support ou orchestrator. |
 | **Estado Cognitivo** | Condição atual da tarefa: simple, complex, sensitive, critical, uncertain, long-context, tool-use ou exploratory. |
 
-PAREI AQUI - !!!
+Esses critérios operam sobre uma cadeia maior, que atravessa toda a arquitetura — de fato bruto a decisão governada:
 
-| Camada | Papel |
-|---|---|
-| Dados | fatos |
-| Informação | contexto |
-| Conhecimento | padrões |
-| Cognição | decisão |
-| Governança Cognitiva | lifecycle + soberania |
+| Camada | Papel | Componente responsável |
+|---|---|---|
+| Dados | fatos | **DataHunter** |
+| Informação | contexto | **Horizon** |
+| Conhecimento | padrões | **NEXUS** |
+| Cognição | decisão | **DIR** |
+| Governança Cognitiva | lifecycle + soberania | **Hydra** |
 
 <br/>
 
 ## Mapa do ecossistema
 
 <div align="center">
-  <img src="./assets/aco-architecture-map.svg" alt="Mapa da arquitetura operacional cognitiva: da camada de experiência até a inferência, com NEXUS e DataHunter como camadas satélite e Hydra observando todos os componentes" width="100%" />
+  <img src="./assets/aco-architecture-map.svg" alt="Mapa da arquitetura cognitiva operacional: da camada de experiência até a inferência, com NEXUS e DataHunter como camadas satélite e Hydra observando todos os componentes" width="100%" />
 </div>
 
 | Camada | Projeto | Papel | Status |
 |---|---|---|---|
-| Experience Layer | Horizon | Hub de experiência cognitiva para chats, agentes, workflows, conhecimento e observabilidade | estável |
-| Agent Platform Layer | ARGO | Plataforma low-code para criação, testes, monitoramento e evolução de agentes autônomos com supervisão humana. Equipes configuram sistemas multiagentes governados via Studio — sem editar código da plataforma — com rastreabilidade, HITL configurável e avaliação contínua por projeto e versão | ativo 
+| Experience Layer | Horizon | Hub de experiência cognitiva para chats, marketplace de agentes, workflows, conhecimento e observabilidade | estável |
+| Agent Platform Layer | ARGO | Plataforma low-code para criar, publicar e operar agentes autônomos com supervisão humana — independentes em runtime, mas monitorados e mantidos pelo ARGO | ativo |
 | Capability OS Layer | Forge | OS de capacidades — publica, descobre, governa e compõe qualquer elemento executável da ACO | em desenvolvimento |
-| Cognitive Decision Layer | DIR | Motor de roteamento cognitivo dinâmico com scoring multiobjetivo de custo, qualidade e risco | em desenvolvimento |
+| Cognitive Decision Layer | DIR | Refina prompts ambíguos sem custo e roteia dinamicamente para o modelo certo por custo, qualidade e risco | em desenvolvimento |
 | Inference Control Layer | OR-OmniRouter | Camada de inferência contínua com fallback entre tiers local, free cloud e paid | beta |
 | Data Discovery Layer | DataHunter | Agente de descoberta e curadoria de dados técnicos com scoring de autoridade e proveniência | beta |
-| Cognitive Continuity Layer | NEXUS | Infraestrutura de continuidade cognitiva: Cognitive Objects, Fabrics, lifecycle, proveniência e distribuição entre agentes e humanos, cobrindo memória semântica, procedural e organizacional | ativo |
+| Cognitive Continuity Layer | NEXUS | Memória viva: cria e publica conhecimento (semântico, procedural e organizacional) com lifecycle e proveniência, para consumo de agentes e humanos | ativo |
 | Operational Intelligence Layer | Hydra | Observabilidade cognitiva, LLMOps, AgentOps, FinOps, auditoria, drift e qualidade | em desenvolvimento |
-
-**Por onde começar**
 
 ### Componentes independentes, adoção incremental
 Cada componente da ACO opera de forma autônoma e agnóstica a stack — não exige a arquitetura completa para entregar valor, nem trava a organização a um único fornecedor de IA. **ARGO** e **Horizon** são os pontos de entrada mais comuns: um agente publicado no ARGO pode atuar de forma isolada, gerenciado exclusivamente pela plataforma; o Horizon pode ser adotado como interface de chat sozinho, sem nenhum outro componente por trás.
@@ -118,19 +116,20 @@ Quando conectados, os componentes se acoplam entre si e às principais stacks e 
 
 Na prática, a adoção pode começar pequena — um agente no ARGO, uma interface no Horizon — e crescer para a arquitetura completa sem reescrever nada.
 
+### Por onde começar
+
 | Objetivo | Projeto |
 |---|---|
 | Consumir LLMs com resiliência e fallback automático | OR-OmniRouter |
-| Criar e operar agentes com supervisão humana | ARGO |
+| Criar, publicar e operar agentes com supervisão humana | ARGO |
 | Descobrir datasets e evidências técnicas | DataHunter |
 | Ter uma interface para conversar com qualquer LLM | Horizon |
-| Preservar conhecimento entre sessões e agentes | NEXUS |
-
+| Preservar conhecimento entre sessões, agentes e humanos | NEXUS |
 <br/>
 
 ## Ciclo cognitivo operacional
 
-Esse ciclo conecta uso, decisão, ação, observação e aprendizado contínuo — cada interação alimenta o próximo ciclo.
+Esse ciclo conecta uso, decisão, ação, observação e aprendizado contínuo — cada interação alimenta o próximo ciclo. Metade do loop é sustentada pelo **DIR** (decisão), a outra metade pelo **NEXUS** (aprendizado).
 
 <div align="center">
   <img src="./assets/aco-cognitive-cycle.svg" alt="Ciclo cognitivo operacional: interação, inferência, decisão, ação, observação, aprendizado, consolidação e redistribuição em loop contínuo" width="100%" />
@@ -140,6 +139,8 @@ Esse ciclo conecta uso, decisão, ação, observação e aprendizado contínuo �
 
 ## Como conversas viram conhecimento
 
+O pipeline abaixo é o mecanismo interno do **NEXUS** para transformar uma conversa em conhecimento reutilizável — da memória episódica de uma sessão até a memória semântica de toda a organização.
+
 <div align="center">
   <img src="./assets/aco-knowledge-pipeline.svg" alt="Pipeline de conhecimento: da conversa até a distribuição entre agentes, passando por captura, validação e consolidação" width="100%" />
 </div>
@@ -148,35 +149,25 @@ Esse ciclo conecta uso, decisão, ação, observação e aprendizado contínuo �
 
 ## Governança cognitiva transversal
 
-A governança não é uma camada posterior. Ela atravessa todo o ecossistema.
+A governança não é uma camada posterior. Ela atravessa todo o ecossistema — cada domínio abaixo é aplicado por um ou mais componentes específicos, não por uma camada única de compliance.
 
-| Domínio | Exemplos |
-|---|---|
-| Segurança | RBAC, segredos, menor privilégio, isolamento |
-| Dados | LGPD, sensibilidade, retenção, soberania |
-| Modelos | provedores autorizados, tiers, fallback permitido |
-| Agentes | escopo, ferramentas, autonomia, HITL obrigatório |
-| Conhecimento | proveniência, validade, conflito, decay |
-| Custos | budget, quota, FinOps, paid fallback |
-| Qualidade | evals, validação, grounding, regressão |
-| Auditoria | ledger, rastreabilidade, logs, decisões |
-| Operação | SLO, incidentes, runbooks, monitoramento |
-
-<br/>
+| Domínio | Exemplos | Componente |
+|---|---|---|
+| Segurança | RBAC, segredos, menor privilégio, isolamento | ARGO, Forge |
+| Dados | LGPD, sensibilidade, retenção, soberania | DataHunter, NEXUS |
+| Modelos | provedores autorizados, tiers, fallback permitido | OR-OmniRouter |
+| Agentes | escopo, ferramentas, autonomia, HITL obrigatório | ARGO |
+| Conhecimento | proveniência, validade, conflito, decay | NEXUS |
+| Custos | budget, quota, FinOps, paid fallback | OR-OmniRouter, Hydra |
+| Qualidade | evals, validação, grounding, regressão | Hydra |
+| Auditoria | ledger, rastreabilidade, logs, decisões | Hydra |
+| Operação | SLO, incidentes, runbooks, monitoramento | Hydra |
 
 ## Evolução da IA
 
-```
-LLMs → APIs → copilots → agents → multi-agent systems → cognitive infrastructure
-```
-
-A próxima fronteira não é apenas criar agentes. É operar **sistemas cognitivos governados, observáveis e economicamente sustentáveis**.
-
-<br/>
-
 ## Direção estratégica
 
-A 1-AI-Ecosystem-Lab explora a construção de uma arquitetura para:
+A 1-AI-Ecosystem-Lab constrói uma arquitetura para:
 
 - otimizar o uso de inferência;
 - reduzir custo real de entrega;
@@ -188,7 +179,7 @@ A 1-AI-Ecosystem-Lab explora a construção de uma arquitetura para:
 
 > O futuro da IA não será definido apenas pelos modelos. Será definido pela capacidade de **operar cognição governada em escala**.
 >
-> **Arquitetura Operacional Cognitiva = Inferência + Decisão + Conhecimento + Governança + Operação**
+> **Arquitetura Cognitiva Operacional = Inferência + Decisão + Conhecimento + Governança + Operação**
 
 <br/>
 
