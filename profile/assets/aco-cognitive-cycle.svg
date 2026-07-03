@@ -1,0 +1,168 @@
+<svg viewBox="0 0 1600 1620" xmlns="http://www.w3.org/2000/svg" font-family="Segoe UI, -apple-system, Helvetica, Arial, sans-serif">
+<defs>
+  <filter id="cardShadow" x="-40%" y="-40%" width="180%" height="180%">
+    <feDropShadow dx="0" dy="10" stdDeviation="16" flood-color="#1B2340" flood-opacity="0.10"/>
+  </filter>
+  <radialGradient id="glowV" cx="50%" cy="0%" r="75%">
+    <stop offset="0%" stop-color="#6C5CE7" stop-opacity="0.10"/><stop offset="100%" stop-color="#6C5CE7" stop-opacity="0"/>
+  </radialGradient>
+  <radialGradient id="glowT" cx="50%" cy="100%" r="75%">
+    <stop offset="0%" stop-color="#0E9AAE" stop-opacity="0.10"/><stop offset="100%" stop-color="#0E9AAE" stop-opacity="0"/>
+  </radialGradient>
+  <marker id="arrowOp" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto" markerUnits="strokeWidth">
+    <path d="M0,0 L7,3 L0,6 Z" fill="#6C5CE7"/>
+  </marker>
+  <marker id="arrowLn" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto" markerUnits="strokeWidth">
+    <path d="M0,0 L7,3 L0,6 Z" fill="#0E9AAE"/>
+  </marker>
+</defs>
+<rect width="1600" height="1620" fill="#FDFDFC"/>
+<rect width="1600" height="1620" fill="url(#glowV)"/>
+<rect width="1600" height="1620" fill="url(#glowT)"/>
+<text x="70" y="66" font-family="SFMono-Regular, Consolas, 'Liberation Mono', monospace" font-size="13" letter-spacing="3" fill="#6C5CE7">ARQUITETURA COGNITIVA OPERACIONAL</text>
+<text x="70" y="106" font-size="32" font-weight="700" fill="#12172B">Ciclo cognitivo operacional</text>
+<text x="70" y="136" font-size="16" fill="#5B6478">Cada interação alimenta o próximo ciclo — o sistema aprende com o próprio uso</text>
+<rect x="1415.4" y="72" width="100.6" height="28" rx="14" fill="#E8F7F9"/>
+<circle cx="1431.4" cy="86" r="5" fill="#0E9AAE"/>
+<text x="1443.4" y="90.5" font-size="13" font-weight="600" fill="#0E9AAE">Aprendizado</text>
+<rect x="1312.6000000000001" y="72" width="74.8" height="28" rx="14" fill="#F1EEFD"/>
+<circle cx="1328.6000000000001" cy="86" r="5" fill="#6C5CE7"/>
+<text x="1340.6000000000001" y="90.5" font-size="13" font-weight="600" fill="#6C5CE7">Operação</text>
+<circle cx="800" cy="850" r="540" fill="none" stroke="#E4E6F0" stroke-width="1.5" stroke-dasharray="1,9"/>
+<path d="M160.0,850.0 A640,640 0 0 1 1440.0,850.0 L1240.0,850.0 A440,440 0 0 0 360.0,850.0 Z" fill="#6C5CE7" opacity="0.035"/>
+<path d="M1440.0,850.0 A640,640 0 0 1 160.0,850.0 L360.0,850.0 A440,440 0 0 0 1240.0,850.0 Z" fill="#0E9AAE" opacity="0.045"/>
+<circle cx="800" cy="850" r="168" fill="#FFFFFF" stroke="#E4E6F0" stroke-width="1.5" filter="url(#cardShadow)"/>
+<text x="800" y="816" font-family="SFMono-Regular, Consolas, 'Liberation Mono', monospace" font-size="12" letter-spacing="2" fill="#5B6478" text-anchor="middle">PRINCÍPIO</text>
+<text x="800" y="852" font-size="23" font-weight="700" fill="#12172B" text-anchor="middle">Aprendizado</text>
+<text x="800" y="880" font-size="23" font-weight="700" fill="#12172B" text-anchor="middle">contínuo</text>
+<line x1="750" y1="900" x2="850" y2="900" stroke="#E4E6F0" stroke-width="1.5"/>
+<text x="800" y="924" font-size="13" fill="#5B6478" text-anchor="middle">8 etapas · 1 loop</text>
+<path d="M966.0,378.8 Q1031.5,291.1 1015.8,399.4" fill="none" stroke="#6C5CE7" stroke-width="2.25" opacity="0.55" marker-end="url(#arrowOp)"/>
+<path d="M1212.9,543.2 Q1358.9,618.5 1308.9,775.0" fill="none" stroke="#6C5CE7" stroke-width="2.25" opacity="0.55" marker-end="url(#arrowOp)"/>
+<path d="M1308.9,925.0 Q1358.9,1081.5 1212.9,1156.8" fill="none" stroke="#6C5CE7" stroke-width="2.25" opacity="0.55" marker-end="url(#arrowOp)"/>
+<path d="M1015.8,1300.6 Q1031.5,1408.9 966.0,1321.2" fill="none" stroke="#6C5CE7" stroke-width="2.25" opacity="0.55" marker-end="url(#arrowOp)"/>
+<path d="M634.0,1321.2 Q568.5,1408.9 584.2,1300.6" fill="none" stroke="#0E9AAE" stroke-width="2.25" opacity="0.55" marker-end="url(#arrowLn)"/>
+<path d="M387.1,1156.8 Q241.1,1081.5 291.1,925.0" fill="none" stroke="#0E9AAE" stroke-width="2.25" opacity="0.55" marker-end="url(#arrowLn)"/>
+<path d="M291.1,775.0 Q241.1,618.5 387.1,543.2" fill="none" stroke="#0E9AAE" stroke-width="2.25" opacity="0.55" marker-end="url(#arrowLn)"/>
+<path d="M584.2,399.4 Q568.5,291.1 634.0,378.8" fill="none" stroke="#0E9AAE" stroke-width="2.25" opacity="0.55" marker-end="url(#arrowLn)"/>
+<g filter="url(#cardShadow)">
+<rect x="640.0" y="241.0" width="320" height="138" rx="18" fill="#FFFFFF" stroke="#E9EAF3" stroke-width="1.3"/>
+</g>
+<rect x="640.0" y="241.0" width="320" height="6" rx="3" fill="#6C5CE7"/>
+<rect x="660.0" y="277.0" width="72" height="72" rx="18" fill="#F1EEFD"/>
+<g transform="translate(679.0,296.0) scale(1.4167)"><rect x="2.5" y="3.5" width="19" height="13" rx="4" fill="none" stroke="#6C5CE7" stroke-width="1.8"/>
+<path d="M7,16.5 L7,21 L12,16.5" fill="none" stroke="#6C5CE7" stroke-width="1.8" stroke-linejoin="round"/>
+<circle cx="8.5" cy="10" r="1.15" fill="#6C5CE7"/>
+<circle cx="12" cy="10" r="1.15" fill="#6C5CE7"/>
+<circle cx="15.5" cy="10" r="1.15" fill="#6C5CE7"/></g>
+<circle cx="730.0" cy="275.0" r="13" fill="#FFFFFF" stroke="#6C5CE7" stroke-width="1.4"/>
+<text x="730.0" y="279.0" font-family="SFMono-Regular, Consolas, 'Liberation Mono', monospace" font-size="10.5" font-weight="700" fill="#6C5CE7" text-anchor="middle">01</text>
+<text x="750.0" y="291.0" font-size="18.5" font-weight="700" fill="#12172B">Interaction</text>
+<text x="750.0" y="314.0" font-size="12.5" fill="#5B6478">Uso real da IA por uma</text>
+<text x="750.0" y="331.0" font-size="12.5" fill="#5B6478">pessoa ou agente.</text>
+<g filter="url(#cardShadow)">
+<rect x="1021.8" y="399.2" width="320" height="138" rx="18" fill="#FFFFFF" stroke="#E9EAF3" stroke-width="1.3"/>
+</g>
+<rect x="1021.8" y="399.2" width="320" height="6" rx="3" fill="#6C5CE7"/>
+<rect x="1041.8" y="435.2" width="72" height="72" rx="18" fill="#F1EEFD"/>
+<g transform="translate(1060.8,454.2) scale(1.4167)"><rect x="7" y="7" width="10" height="10" rx="1.5" fill="none" stroke="#6C5CE7" stroke-width="1.8"/>
+<rect x="10" y="10" width="4" height="4" fill="none" stroke="#6C5CE7" stroke-width="1.3"/>
+<line x1="9.5" y1="2.5" x2="9.5" y2="7" stroke="#6C5CE7" stroke-width="1.8"/>
+<line x1="9.5" y1="17" x2="9.5" y2="21.5" stroke="#6C5CE7" stroke-width="1.8"/>
+<line x1="14.5" y1="2.5" x2="14.5" y2="7" stroke="#6C5CE7" stroke-width="1.8"/>
+<line x1="14.5" y1="17" x2="14.5" y2="21.5" stroke="#6C5CE7" stroke-width="1.8"/>
+<line x1="2.5" y1="9.5" x2="7" y2="9.5" stroke="#6C5CE7" stroke-width="1.8"/>
+<line x1="17" y1="9.5" x2="21.5" y2="9.5" stroke="#6C5CE7" stroke-width="1.8"/>
+<line x1="2.5" y1="14.5" x2="7" y2="14.5" stroke="#6C5CE7" stroke-width="1.8"/>
+<line x1="17" y1="14.5" x2="21.5" y2="14.5" stroke="#6C5CE7" stroke-width="1.8"/></g>
+<circle cx="1111.8" cy="433.2" r="13" fill="#FFFFFF" stroke="#6C5CE7" stroke-width="1.4"/>
+<text x="1111.8" y="437.2" font-family="SFMono-Regular, Consolas, 'Liberation Mono', monospace" font-size="10.5" font-weight="700" fill="#6C5CE7" text-anchor="middle">02</text>
+<text x="1131.8" y="449.2" font-size="18.5" font-weight="700" fill="#12172B">Inference</text>
+<text x="1131.8" y="472.2" font-size="12.5" fill="#5B6478">Modelo executa sob</text>
+<text x="1131.8" y="489.2" font-size="12.5" fill="#5B6478">custo e latência</text>
+<text x="1131.8" y="506.2" font-size="12.5" fill="#5B6478">controlados.</text>
+<g filter="url(#cardShadow)">
+<rect x="1180.0" y="781.0" width="320" height="138" rx="18" fill="#FFFFFF" stroke="#E9EAF3" stroke-width="1.3"/>
+</g>
+<rect x="1180.0" y="781.0" width="320" height="6" rx="3" fill="#6C5CE7"/>
+<rect x="1200.0" y="817.0" width="72" height="72" rx="18" fill="#F1EEFD"/>
+<g transform="translate(1219.0,836.0) scale(1.4167)"><circle cx="12" cy="20.5" r="1.4" fill="#6C5CE7"/>
+<path d="M12,19 L12,13 M12,13 L5,4.5 M12,13 L19,4.5" fill="none" stroke="#6C5CE7" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="5" cy="4" r="1.4" fill="#6C5CE7"/>
+<circle cx="19" cy="4" r="1.4" fill="#6C5CE7"/></g>
+<circle cx="1270.0" cy="815.0" r="13" fill="#FFFFFF" stroke="#6C5CE7" stroke-width="1.4"/>
+<text x="1270.0" y="819.0" font-family="SFMono-Regular, Consolas, 'Liberation Mono', monospace" font-size="10.5" font-weight="700" fill="#6C5CE7" text-anchor="middle">03</text>
+<text x="1290.0" y="831.0" font-size="18.5" font-weight="700" fill="#12172B">Decision</text>
+<text x="1290.0" y="854.0" font-size="12.5" fill="#5B6478">Política escolhe o</text>
+<text x="1290.0" y="871.0" font-size="12.5" fill="#5B6478">caminho: modelo,</text>
+<text x="1290.0" y="888.0" font-size="12.5" fill="#5B6478">agente, rota.</text>
+<g filter="url(#cardShadow)">
+<rect x="1021.8" y="1162.8" width="320" height="138" rx="18" fill="#FFFFFF" stroke="#E9EAF3" stroke-width="1.3"/>
+</g>
+<rect x="1021.8" y="1162.8" width="320" height="6" rx="3" fill="#6C5CE7"/>
+<rect x="1041.8" y="1198.8" width="72" height="72" rx="18" fill="#F1EEFD"/>
+<g transform="translate(1060.8,1217.8) scale(1.4167)"><path d="M13,2 L4.5,13.5 L11,13.5 L9.5,22 L19.5,9.5 L12.5,9.5 Z" fill="#6C5CE7"/></g>
+<circle cx="1111.8" cy="1196.8" r="13" fill="#FFFFFF" stroke="#6C5CE7" stroke-width="1.4"/>
+<text x="1111.8" y="1200.8" font-family="SFMono-Regular, Consolas, 'Liberation Mono', monospace" font-size="10.5" font-weight="700" fill="#6C5CE7" text-anchor="middle">04</text>
+<text x="1131.8" y="1212.8" font-size="18.5" font-weight="700" fill="#12172B">Action</text>
+<text x="1131.8" y="1235.8" font-size="12.5" fill="#5B6478">Execução realizada por</text>
+<text x="1131.8" y="1252.8" font-size="12.5" fill="#5B6478">agentes e ferramentas.</text>
+<g filter="url(#cardShadow)">
+<rect x="640.0" y="1321.0" width="320" height="138" rx="18" fill="#FFFFFF" stroke="#E9EAF3" stroke-width="1.3"/>
+</g>
+<rect x="640.0" y="1321.0" width="320" height="6" rx="3" fill="#0E9AAE"/>
+<rect x="660.0" y="1357.0" width="72" height="72" rx="18" fill="#E8F7F9"/>
+<g transform="translate(679.0,1376.0) scale(1.4167)"><path d="M2,12 C5,6.5 9,4.3 12,4.3 C15,4.3 19,6.5 22,12 C19,17.5 15,19.7 12,19.7 C9,19.7 5,17.5 2,12 Z" fill="none" stroke="#0E9AAE" stroke-width="1.8" stroke-linejoin="round"/>
+<circle cx="12" cy="12" r="3.4" fill="none" stroke="#0E9AAE" stroke-width="1.8"/>
+<circle cx="12" cy="12" r="1" fill="#0E9AAE"/></g>
+<circle cx="730.0" cy="1355.0" r="13" fill="#FFFFFF" stroke="#0E9AAE" stroke-width="1.4"/>
+<text x="730.0" y="1359.0" font-family="SFMono-Regular, Consolas, 'Liberation Mono', monospace" font-size="10.5" font-weight="700" fill="#0E9AAE" text-anchor="middle">05</text>
+<text x="750.0" y="1371.0" font-size="18.5" font-weight="700" fill="#12172B">Observation</text>
+<text x="750.0" y="1394.0" font-size="12.5" fill="#5B6478">Resultado é medido,</text>
+<text x="750.0" y="1411.0" font-size="12.5" fill="#5B6478">logado e auditado.</text>
+<g filter="url(#cardShadow)">
+<rect x="258.2" y="1162.8" width="320" height="138" rx="18" fill="#FFFFFF" stroke="#E9EAF3" stroke-width="1.3"/>
+</g>
+<rect x="258.2" y="1162.8" width="320" height="6" rx="3" fill="#0E9AAE"/>
+<rect x="278.2" y="1198.8" width="72" height="72" rx="18" fill="#E8F7F9"/>
+<g transform="translate(297.2,1217.8) scale(1.4167)"><rect x="4.5" y="14" width="4.5" height="6" rx="1" fill="none" stroke="#0E9AAE" stroke-width="1.8"/>
+<rect x="10.5" y="10" width="4.5" height="10" rx="1" fill="none" stroke="#0E9AAE" stroke-width="1.8"/>
+<rect x="16.5" y="5" width="4.5" height="15" rx="1" fill="none" stroke="#0E9AAE" stroke-width="1.8"/>
+<path d="M4,3.5 L9,1.5 L14,3 L20,0.8" fill="none" stroke="#0E9AAE" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" opacity="0.001"/></g>
+<circle cx="348.2" cy="1196.8" r="13" fill="#FFFFFF" stroke="#0E9AAE" stroke-width="1.4"/>
+<text x="348.2" y="1200.8" font-family="SFMono-Regular, Consolas, 'Liberation Mono', monospace" font-size="10.5" font-weight="700" fill="#0E9AAE" text-anchor="middle">06</text>
+<text x="368.2" y="1212.8" font-size="18.5" font-weight="700" fill="#12172B">Learning</text>
+<text x="368.2" y="1235.8" font-size="12.5" fill="#5B6478">Sinais viram evidência</text>
+<text x="368.2" y="1252.8" font-size="12.5" fill="#5B6478">e conhecimento.</text>
+<g filter="url(#cardShadow)">
+<rect x="100.0" y="781.0" width="320" height="138" rx="18" fill="#FFFFFF" stroke="#E9EAF3" stroke-width="1.3"/>
+</g>
+<rect x="100.0" y="781.0" width="320" height="6" rx="3" fill="#0E9AAE"/>
+<rect x="120.0" y="817.0" width="72" height="72" rx="18" fill="#E8F7F9"/>
+<g transform="translate(139.0,836.0) scale(1.4167)"><ellipse cx="12" cy="6" rx="8.5" ry="3" fill="none" stroke="#0E9AAE" stroke-width="1.8"/>
+<path d="M3.5,6 L3.5,18 C3.5,19.7 7.3,21 12,21 C16.7,21 20.5,19.7 20.5,18 L20.5,6" fill="none" stroke="#0E9AAE" stroke-width="1.8"/>
+<path d="M3.5,12 C3.5,13.7 7.3,15 12,15 C16.7,15 20.5,13.7 20.5,12" fill="none" stroke="#0E9AAE" stroke-width="1.8"/></g>
+<circle cx="190.0" cy="815.0" r="13" fill="#FFFFFF" stroke="#0E9AAE" stroke-width="1.4"/>
+<text x="190.0" y="819.0" font-family="SFMono-Regular, Consolas, 'Liberation Mono', monospace" font-size="10.5" font-weight="700" fill="#0E9AAE" text-anchor="middle">07</text>
+<text x="210.0" y="831.0" font-size="18.5" font-weight="700" fill="#12172B">Consolidation</text>
+<text x="210.0" y="854.0" font-size="12.5" fill="#5B6478">Evidência validada</text>
+<text x="210.0" y="871.0" font-size="12.5" fill="#5B6478">entra na memória</text>
+<text x="210.0" y="888.0" font-size="12.5" fill="#5B6478">semântica.</text>
+<g filter="url(#cardShadow)">
+<rect x="258.2" y="399.2" width="320" height="138" rx="18" fill="#FFFFFF" stroke="#E9EAF3" stroke-width="1.3"/>
+</g>
+<rect x="258.2" y="399.2" width="320" height="6" rx="3" fill="#0E9AAE"/>
+<rect x="278.2" y="435.2" width="72" height="72" rx="18" fill="#E8F7F9"/>
+<g transform="translate(297.2,454.2) scale(1.4167)"><line x1="12" y1="4" x2="4.5" y2="19" stroke="#0E9AAE" stroke-width="1.8"/>
+<line x1="12" y1="4" x2="19.5" y2="19" stroke="#0E9AAE" stroke-width="1.8"/>
+<line x1="4.5" y1="19" x2="19.5" y2="19" stroke="#0E9AAE" stroke-width="1.8"/>
+<circle cx="12" cy="4" r="2.6" fill="#FDFDFC" stroke="#0E9AAE" stroke-width="1.8"/>
+<circle cx="4.5" cy="19" r="2.6" fill="#FDFDFC" stroke="#0E9AAE" stroke-width="1.8"/>
+<circle cx="19.5" cy="19" r="2.6" fill="#FDFDFC" stroke="#0E9AAE" stroke-width="1.8"/></g>
+<circle cx="348.2" cy="433.2" r="13" fill="#FFFFFF" stroke="#0E9AAE" stroke-width="1.4"/>
+<text x="348.2" y="437.2" font-family="SFMono-Regular, Consolas, 'Liberation Mono', monospace" font-size="10.5" font-weight="700" fill="#0E9AAE" text-anchor="middle">08</text>
+<text x="368.2" y="449.2" font-size="18.5" font-weight="700" fill="#12172B">Redistribution</text>
+<text x="368.2" y="472.2" font-size="12.5" fill="#5B6478">Conhecimento volta a</text>
+<text x="368.2" y="489.2" font-size="12.5" fill="#5B6478">circular entre</text>
+<text x="368.2" y="506.2" font-size="12.5" fill="#5B6478">agentes.</text>
+</svg>

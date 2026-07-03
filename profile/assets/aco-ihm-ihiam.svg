@@ -1,0 +1,87 @@
+<svg viewBox="0 0 1500 800" xmlns="http://www.w3.org/2000/svg" font-family="Segoe UI, -apple-system, Helvetica, Arial, sans-serif">
+<defs>
+  <filter id="cardShadow" x="-40%" y="-40%" width="180%" height="180%">
+    <feDropShadow dx="0" dy="10" stdDeviation="16" flood-color="#1B2340" flood-opacity="0.10"/>
+  </filter>
+  <filter id="glowSpark" x="-100%" y="-100%" width="300%" height="300%">
+    <feGaussianBlur stdDeviation="6" result="blur"/>
+    <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+  </filter>
+  <marker id="arrGray" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto">
+    <path d="M0,0 L7,3 L0,6 Z" fill="#8A93A8"/>
+  </marker>
+  <marker id="arrViolet" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto">
+    <path d="M0,0 L7,3 L0,6 Z" fill="#6C5CE7"/>
+  </marker>
+  <marker id="arrTeal" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto">
+    <path d="M0,0 L7,3 L0,6 Z" fill="#0E9AAE"/>
+  </marker>
+</defs>
+<rect width="1500" height="800" fill="#FDFDFC"/>
+<text x="70" y="62" font-family="SFMono-Regular, Consolas, 'Liberation Mono', monospace" font-size="13" letter-spacing="3" fill="#6C5CE7">ARQUITETURA COGNITIVA OPERACIONAL</text>
+<text x="70" y="102" font-size="32" font-weight="700" fill="#12172B">Da IHM à IHIAM</text>
+<text x="70" y="132" font-size="16" fill="#5B6478">A IA deixa de mediar comandos e passa a participar da decisão e do aprendizado</text>
+<rect x="60" y="175" width="640" height="560" rx="22" fill="#EEF0F3" stroke="#E4E6F0" stroke-width="1.5"/>
+<text x="96" y="227" font-family="SFMono-Regular, Consolas, 'Liberation Mono', monospace" font-size="12" letter-spacing="2" fill="#8A93A8">MODELO CLÁSSICO</text>
+<text x="96" y="259" font-size="23" font-weight="700" fill="#12172B">IHM — Interface Homem-Máquina</text>
+<text x="96" y="287" font-size="13.5" fill="#5B6478">A interface medeia o comando. O sistema não aprende com o uso.</text>
+<line x1="242" y1="475" x2="328.0" y2="475" stroke="#8A93A8" stroke-width="2" marker-end="url(#arrGray)"/>
+<line x1="432.0" y1="475" x2="518" y2="475" stroke="#8A93A8" stroke-width="2" marker-end="url(#arrGray)"/>
+<circle cx="190" cy="475" r="46" fill="#FFFFFF" stroke="#8A93A8" stroke-width="1.6" filter="url(#cardShadow)"/>
+<g transform="translate(175.0,460.0) scale(1.2500)"><circle cx="12" cy="7.5" r="4" fill="none" stroke="#8A93A8" stroke-width="1.8"/>
+    <path d="M4,21 C4,15.5 7.5,13 12,13 C16.5,13 20,15.5 20,21" fill="none" stroke="#8A93A8" stroke-width="1.8" stroke-linecap="round"/></g>
+<text x="190" y="551" font-size="14.5" font-weight="700" fill="#12172B" text-anchor="middle">Humano</text>
+<circle cx="380.0" cy="475" r="46" fill="#FFFFFF" stroke="#8A93A8" stroke-width="1.6" filter="url(#cardShadow)"/>
+<g transform="translate(365.0,460.0) scale(1.2500)"><rect x="2.5" y="3.5" width="19" height="13" rx="2" fill="none" stroke="#8A93A8" stroke-width="1.8"/>
+    <line x1="9" y1="20.5" x2="15" y2="20.5" stroke="#8A93A8" stroke-width="1.8" stroke-linecap="round"/>
+    <line x1="12" y1="16.5" x2="12" y2="20.5" stroke="#8A93A8" stroke-width="1.8"/></g>
+<text x="380.0" y="551" font-size="14.5" font-weight="700" fill="#12172B" text-anchor="middle">Interface</text>
+<circle cx="570" cy="475" r="46" fill="#FFFFFF" stroke="#8A93A8" stroke-width="1.6" filter="url(#cardShadow)"/>
+<g transform="translate(555.0,460.0) scale(1.2500)"><circle cx="12" cy="12" r="4.3" fill="none" stroke="#8A93A8" stroke-width="1.7"/>
+<line x1="19.20" y1="12.00" x2="22.00" y2="12.00" stroke="#8A93A8" stroke-width="2.3" stroke-linecap="round"/>
+<line x1="17.09" y1="17.09" x2="19.07" y2="19.07" stroke="#8A93A8" stroke-width="2.3" stroke-linecap="round"/>
+<line x1="12.00" y1="19.20" x2="12.00" y2="22.00" stroke="#8A93A8" stroke-width="2.3" stroke-linecap="round"/>
+<line x1="6.91" y1="17.09" x2="4.93" y2="19.07" stroke="#8A93A8" stroke-width="2.3" stroke-linecap="round"/>
+<line x1="4.80" y1="12.00" x2="2.00" y2="12.00" stroke="#8A93A8" stroke-width="2.3" stroke-linecap="round"/>
+<line x1="6.91" y1="6.91" x2="4.93" y2="4.93" stroke="#8A93A8" stroke-width="2.3" stroke-linecap="round"/>
+<line x1="12.00" y1="4.80" x2="12.00" y2="2.00" stroke="#8A93A8" stroke-width="2.3" stroke-linecap="round"/>
+<line x1="17.09" y1="6.91" x2="19.07" y2="4.93" stroke="#8A93A8" stroke-width="2.3" stroke-linecap="round"/></g>
+<text x="570" y="551" font-size="14.5" font-weight="700" fill="#12172B" text-anchor="middle">Máquina</text>
+<text x="380.0" y="695" font-size="12.5" fill="#5B6478" text-anchor="middle">Fluxo único, uma direção — a IA não existe como participante</text>
+<path d="M714,455.0 L786,455.0" stroke="#6C5CE7" stroke-width="2.5" stroke-dasharray="1,7" marker-end="url(#arrViolet)"/>
+<text x="750.0" y="439.0" font-size="12.5" font-weight="700" fill="#6C5CE7" text-anchor="middle">evolução</text>
+<linearGradient id="rightBg" x1="0" y1="0" x2="1" y2="1">
+  <stop offset="0%" stop-color="#F1EEFD"/><stop offset="100%" stop-color="#E8F7F9"/>
+</linearGradient>
+<rect x="800" y="175" width="640" height="560" rx="22" fill="url(#rightBg)" stroke="#6C5CE7" stroke-opacity="0.35" stroke-width="1.5"/>
+<text x="836" y="227" font-family="SFMono-Regular, Consolas, 'Liberation Mono', monospace" font-size="12" letter-spacing="2" fill="#6C5CE7">PARADIGMA DA ACO</text>
+<text x="836" y="259" font-size="23" font-weight="700" fill="#12172B">IHIAM — Interface Homem-IA-Máquina</text>
+<text x="836" y="287" font-size="13.5" fill="#5B6478">A IA participa da decisão e aprende com cada uso.</text>
+<path d="M940,585 Q1120.0,645 1300,585" fill="none" stroke="#5B6478" stroke-width="1.5" stroke-dasharray="4,6" opacity="0.55"/>
+<path d="M970,555 Q1017.5,492.5 1065.0,450" fill="none" stroke="#6C5CE7" stroke-width="2.3" marker-end="url(#arrViolet)"/>
+<path d="M1065.0,464 Q1017.5,506.5 970,569" fill="none" stroke="#6C5CE7" stroke-width="2.3" opacity="0.55" marker-end="url(#arrViolet)"/>
+<path d="M1175.0,450 Q1222.5,492.5 1270,555" fill="none" stroke="#0E9AAE" stroke-width="2.3" marker-end="url(#arrTeal)"/>
+<path d="M1270,569 Q1222.5,506.5 1175.0,464" fill="none" stroke="#0E9AAE" stroke-width="2.3" opacity="0.55" marker-end="url(#arrTeal)"/>
+<path d="M1086.0,363 A34,20 0 1 1 1154.0,363" fill="none" stroke="#6C5CE7" stroke-width="2" stroke-dasharray="3,5" marker-end="url(#arrViolet)"/>
+<text x="1120.0" y="345" font-size="11.5" fill="#6C5CE7" text-anchor="middle" font-weight="600">aprende</text>
+<circle cx="930" cy="575" r="46" fill="#FFFFFF" stroke="#12172B" stroke-opacity="0.4" stroke-width="1.6" filter="url(#cardShadow)"/>
+<g transform="translate(915.0,560.0) scale(1.2500)"><circle cx="12" cy="7.5" r="4" fill="none" stroke="#12172B" stroke-width="1.8"/>
+    <path d="M4,21 C4,15.5 7.5,13 12,13 C16.5,13 20,15.5 20,21" fill="none" stroke="#12172B" stroke-width="1.8" stroke-linecap="round"/></g>
+<text x="930" y="651" font-size="14.5" font-weight="700" fill="#12172B" text-anchor="middle">Humano</text>
+<circle cx="1310" cy="575" r="46" fill="#FFFFFF" stroke="#12172B" stroke-opacity="0.4" stroke-width="1.6" filter="url(#cardShadow)"/>
+<g transform="translate(1295.0,560.0) scale(1.2500)"><circle cx="12" cy="12" r="4.3" fill="none" stroke="#12172B" stroke-width="1.7"/>
+<line x1="19.20" y1="12.00" x2="22.00" y2="12.00" stroke="#12172B" stroke-width="2.3" stroke-linecap="round"/>
+<line x1="17.09" y1="17.09" x2="19.07" y2="19.07" stroke="#12172B" stroke-width="2.3" stroke-linecap="round"/>
+<line x1="12.00" y1="19.20" x2="12.00" y2="22.00" stroke="#12172B" stroke-width="2.3" stroke-linecap="round"/>
+<line x1="6.91" y1="17.09" x2="4.93" y2="19.07" stroke="#12172B" stroke-width="2.3" stroke-linecap="round"/>
+<line x1="4.80" y1="12.00" x2="2.00" y2="12.00" stroke="#12172B" stroke-width="2.3" stroke-linecap="round"/>
+<line x1="6.91" y1="6.91" x2="4.93" y2="4.93" stroke="#12172B" stroke-width="2.3" stroke-linecap="round"/>
+<line x1="12.00" y1="4.80" x2="12.00" y2="2.00" stroke="#12172B" stroke-width="2.3" stroke-linecap="round"/>
+<line x1="17.09" y1="6.91" x2="19.07" y2="4.93" stroke="#12172B" stroke-width="2.3" stroke-linecap="round"/></g>
+<text x="1310" y="651" font-size="14.5" font-weight="700" fill="#12172B" text-anchor="middle">Máquina</text>
+<circle cx="1120.0" cy="415" r="64" fill="#6C5CE7" opacity="0.12"/>
+<circle cx="1120.0" cy="415" r="54" fill="#FFFFFF" stroke="#6C5CE7" stroke-width="2" filter="url(#cardShadow)"/>
+<g transform="translate(1103.0,398.0) scale(1.4167)" filter="url(#glowSpark)"><path d="M12,1.5 L14.2,9.3 L22,12 L14.2,14.7 L12,22.5 L9.8,14.7 L2,12 L9.8,9.3 Z" fill="#6C5CE7"/></g>
+<text x="1120.0" y="499" font-size="15.5" font-weight="700" fill="#6C5CE7" text-anchor="middle">IA</text>
+<text x="1120.0" y="695" font-size="12.5" fill="#5B6478" text-anchor="middle">Loop contínuo e bidirecional — a IA aprende e realimenta a decisão</text>
+</svg>
