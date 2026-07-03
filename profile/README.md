@@ -19,14 +19,17 @@ Este README é a porta de entrada da arquitetura: o que já está rodando, como 
 <br/>
 
 ## A lacuna nas arquiteturas de raciocínio atuais
-A ACO nasce de uma pesquisa sobre arquiteturas de raciocínio em IA, que identificou cinco limitações estruturais — e cada componente da arquitetura existe para resolver uma delas.
+
+A ACO responde a sete limitações estruturais identificadas em arquiteturas de raciocínio atuais — cada componente do ecossistema, à exceção do Horizon (camada de experiência), existe para resolver exatamente uma delas.
 
 | Limitação identificada | Como a ACO responde |
 |---|---|
-| **Aprendizado finito e sistema passivo** — o conhecimento gerado numa interação se perde ao final dela, e o sistema não evolui nem melhora decisões com o próprio uso | **NEXUS** trata conhecimento como objeto com lifecycle e proveniência, consolidando memória episódica em semântica, procedural e organizacional — e vai além do armazenamento: cria e publica novos artefatos (padrões, evidências, referências) para consumo ativo por agentes e humanos futuros |
-| **Entrada não governada** — ambiguidade e falta de contexto só são descobertas depois que já custaram uma chamada cara | **DIR** refina prompts ambíguos ou sem contexto de forma interativa e sem custo, antes de qualquer envio a um provedor oneroso — evitando conversas longas e desnecessárias |
+| **Agentes autônomos sem supervisão estruturada** — sistemas multiagentes executam sem trilha auditável de decisão nem mecanismo formal de intervenção humana | **ARGO** oferece HITL configurável, rastreabilidade e avaliação contínua por projeto e versão — agentes podem operar independentes em runtime, mas nunca perdem o vínculo de monitoramento e manutenção |
+| **Capacidades fragmentadas e não reaproveitáveis** — cada equipe recria ferramentas e integrações do zero, sem um catálogo central | **Forge** publica, descobre, governa e compõe qualquer elemento executável da arquitetura, tornando capacidades reutilizáveis entre projetos e times |
+| **Entrada não governada e seleção de modelo estática** — prompts ambíguos chegam sem refino a um modelo fixo, independente da tarefa | **DIR** refina prompts ambíguos sem custo antes do envio a um provedor oneroso, e seleciona o modelo mais adequado por conteúdo, criticidade, domínio e tipo de tarefa |
 | **Excesso de uso e falta de controle sobre inferência** — cada decisão dispara nova chamada ao modelo, mesmo quando o custo poderia ser evitado | **OR-OmniRouter** controla consumo de tokens com fallback automático entre modelos (evitando interrupções por limite de uso) e otimiza o prompt de entrada por roteamento entre técnicas de redução |
-| **Seleção de modelo estática, não adaptativa à tarefa** — um modelo fixo é usado independente da tarefa, desperdiçando capacidade nos dois sentidos | **DIR** seleciona o modelo mais adequado de acordo com conteúdo, criticidade, domínio de conhecimento e tipo de tarefa |
+| **Conhecimento externo não curado** — dados e evidências técnicas usados por agentes vêm de fontes não verificadas, sem proveniência | **DataHunter** descobre e cura dados técnicos com scoring de autoridade e proveniência antes de entrarem no ecossistema |
+| **Aprendizado finito e sistema passivo** — o conhecimento gerado numa interação se perde ao final dela, e o sistema não evolui nem melhora decisões com o próprio uso | **NEXUS** trata conhecimento como objeto com lifecycle e proveniência, consolidando memória episódica em semântica, procedural e organizacional — e vai além do armazenamento: cria e publica novos artefatos para consumo ativo por agentes e humanos futuros |
 | **Falta de governança e visibilidade sobre a abordagem neural dentro do raciocínio** — não é só "quem usou o quê", é como componentes neurais influenciam a decisão internamente | **Hydra** cobre observabilidade cognitiva, LLMOps, AgentOps, FinOps, auditoria, drift e qualidade — tornando essa influência rastreável e auditável, em vez de uma caixa-preta |
 
 
