@@ -22,8 +22,8 @@ A ACO nasce de uma pesquisa sobre arquiteturas de raciocínio em IA, que identif
 |---|---|
 | **Aprendizado finito** — o conhecimento gerado numa interação se perde ao final dela | **NEXUS** trata conhecimento como objeto com lifecycle e proveniência, consolidando memória episódica em semântica |
 | **Excesso de uso de inferência** — cada decisão dispara nova chamada ao modelo, mesmo quando o conhecimento já existe | **DIR** + **OR-OmniRouter** roteiam por custo, qualidade e risco, evitando reprocessar o que já foi aprendido |
-| **Sistema passivo, não ativo** — a IA responde, mas não participa da evolução do conhecimento nem da melhoria das decisões ao longo do tempo | **ARGO** (HITL) + **Hydra** fecham o loop: o sistema observa, aprende e realimenta decisões futuras |
-| **Falta de governança e visibilidade sobre a abordagem neural dentro do raciocínio** — não é só "quem usou o quê", é como componentes neurais influenciam a decisão internamente | **Governança cognitiva transversal** + **Hydra** (auditoria, drift, qualidade) tornam essa influência rastreável, não uma caixa-preta |
+| **Sistema passivo, não ativo** — a IA responde, mas não participa da evolução do conhecimento nem da melhoria das decisões ao longo do tempo | **ARGO** (HITL) + **Horizon** fecham o loop: o sistema observa, aprende e realimenta o conhecimento do usuário e decisões futuras |
+| **Falta de governança e visibilidade sobre a abordagem neural dentro do raciocínio** — não é só "quem usou o quê", é como componentes neurais influenciam a decisão internamente | **Hydra** (auditoria, drift, qualidade) tornam essa influência rastreável, não uma caixa-preta |
 
 ### De IHM para IHIAM
 
