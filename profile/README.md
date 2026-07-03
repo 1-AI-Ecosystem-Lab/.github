@@ -39,6 +39,10 @@ O modelo clássico de **IHM — Interface Homem-Máquina** — pressupõe um hum
 
 Em sistemas cognitivos, a IA deixa de ser apenas interface e passa a atuar como agente dentro do próprio processo de decisão. A ACO é desenhada para o paradigma **IHIAM — Interface Homem-IA-Máquina**: a IA participa ativamente da evolução do conhecimento e da tomada de decisão, não apenas media o comando do humano para a máquina.
 
+<div align="center">
+  <img src="./assets/aco-ihm-ihiam.svg" alt="Comparação entre o modelo clássico IHM (Interface Homem-Máquina), com fluxo único e sem aprendizado, e o paradigma IHIAM da ACO, com a IA participando ativamente em um loop bidirecional de decisão e aprendizado" width="100%" />
+</div>
+
 **Mesma tarefa, dois paradigmas** — pedido: *"me manda o relatório de vendas"*
 
 | | IHM | IHIAM (ACO) |
