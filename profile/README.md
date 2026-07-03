@@ -6,7 +6,7 @@
 
 ## Resumo executivo
 
-A **1-AI-Ecosystem-Lab** desenvolve a **Arquitetura Operacional Cognitiva (ACO)**: uma infraestrutura que trata IA generativa como uma **operação governada e observável**, não como uma coleção de chamadas a modelos.
+A **1-AI-Ecosystem-Lab** desenvolve a **Arquitetura Cognitiva Operacional  (ACO)**: uma infraestrutura que trata IA generativa como uma **operação governada e observável**, não como uma coleção de chamadas a modelos.
 
 À medida que empresas migram de chats isolados para agentes e sistemas multiagentes, os problemas deixam de ser "qual modelo usar" e passam a ser **custo de inferência descontrolado, decisões não rastreáveis, conhecimento perdido entre sessões e ausência de governança sobre dados, privacidade e risco**. A ACO endereça isso com um conjunto de componentes modulares — hoje já em operação real, não apenas em design — que cobrem inferência, decisão, memória, execução multiagente e observabilidade de ponta a ponta.
 
