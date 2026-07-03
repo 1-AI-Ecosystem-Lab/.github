@@ -14,6 +14,25 @@ Este README é a porta de entrada da arquitetura: o que já está rodando, como 
 
 <br/>
 
+## A lacuna nas arquiteturas de raciocínio atuais
+
+A ACO nasce de uma pesquisa sobre arquiteturas de raciocínio em IA, que identificou quatro limitações estruturais nos sistemas hoje predominantes — e cada componente da arquitetura existe para responder a uma delas.
+
+| Limitação identificada | Como a ACO responde |
+|---|---|
+| **Aprendizado finito** — o conhecimento gerado numa interação se perde ao final dela | **NEXUS** trata conhecimento como objeto com lifecycle e proveniência, consolidando memória episódica em semântica |
+| **Excesso de uso de inferência** — cada decisão dispara nova chamada ao modelo, mesmo quando o conhecimento já existe | **DIR** + **OR-OmniRouter** roteiam por custo, qualidade e risco, evitando reprocessar o que já foi aprendido |
+| **Sistema passivo, não ativo** — a IA responde, mas não participa da evolução do conhecimento nem da melhoria das decisões ao longo do tempo | **ARGO** (HITL) + **Hydra** fecham o loop: o sistema observa, aprende e realimenta decisões futuras |
+| **Falta de governança e visibilidade sobre a abordagem neural dentro do raciocínio** — não é só "quem usou o quê", é como componentes neurais influenciam a decisão internamente | **Governança cognitiva transversal** + **Hydra** (auditoria, drift, qualidade) tornam essa influência rastreável, não uma caixa-preta |
+
+### De IHM para IHIAM
+
+O modelo clássico de **IHM — Interface Homem-Máquina** — pressupõe um humano operando uma máquina determinística. Em sistemas cognitivos, a IA deixa de ser apenas interface e passa a atuar como agente dentro do próprio processo de decisão.
+
+A ACO é desenhada para o paradigma **IHIAM — Interface Homem-IA-Máquina**: a IA participa ativamente da evolução do conhecimento e da tomada de decisão, não apenas media o comando do humano para a máquina.
+
+<br/>
+
 ## Onde cada componente está hoje
 
 | Componente | Camada | Papel em uma frase | Status |
