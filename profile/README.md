@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="./assets/aco-hero-banner.svg" alt="Arquitetura Operacional Cognitiva — Inferência, decisão, conhecimento, governança e operação como um sistema integrado" width="100%" />
+  <img src="./assets/aco-hero-banner.svg" alt="Arquitetura Cognitiva Operacional — Inferência, decisão, conhecimento, governança e operação como um sistema integrado" width="100%" />
 </div>
 
 <br/>
@@ -32,7 +32,6 @@ A ACO responde a sete limitações estruturais identificadas em arquiteturas de 
 | **Aprendizado finito e sistema passivo** — o conhecimento gerado numa interação se perde ao final dela, e o sistema não evolui nem melhora decisões com o próprio uso | **NEXUS** trata conhecimento como objeto com lifecycle e proveniência, consolidando memória episódica em semântica, procedural e organizacional — e vai além do armazenamento: cria e publica novos artefatos para consumo ativo por agentes e humanos futuros |
 | **Falta de governança e visibilidade sobre a abordagem neural dentro do raciocínio** — não é só "quem usou o quê", é como componentes neurais influenciam a decisão internamente | **Hydra** cobre observabilidade cognitiva, LLMOps, AgentOps, FinOps, auditoria, drift e qualidade — tornando essa influência rastreável e auditável, em vez de uma caixa-preta |
 
-
 ### De IHM para IHIAM
 
 O modelo clássico de **IHM — Interface Homem-Máquina** — pressupõe um humano operando uma máquina determinística: o comando é executado exatamente como dado, e nada do que acontece numa interação fica disponível para a próxima.
@@ -58,11 +57,11 @@ Em sistemas cognitivos, a IA deixa de ser apenas interface e passa a atuar como 
 
 | Componente | Camada | Papel em uma frase | Status |
 |---|---|---|---|
-| **Horizon** | Experience | Interface única para chats, marketplace de agentes, workflows e observabilidade | ![estável](https://img.shields.io/badge/estável-33C481?style=flat-square) |
-| **ARGO** | Agent Platform | Plataforma low-code para criar, publicar e operar agentes autônomos — independentes em runtime, mas monitorados e mantidos pelo ARGO | ![ativo](https://img.shields.io/badge/ativo-2FD9E8?style=flat-square) |
-| **NEXUS** | Cognitive Continuity | Memória viva: consolida e publica conhecimento para agentes e humanos | ![ativo](https://img.shields.io/badge/ativo-2FD9E8?style=flat-square) |
-| **OR-OmniRouter** | Inference Control | Inferência contínua com fallback entre tiers local / free / paid | ![beta](https://img.shields.io/badge/beta-F5A623?style=flat-square) |
-| **DataHunter** | Data Discovery | Descoberta e curadoria agêntica de dados técnicos | ![beta](https://img.shields.io/badge/beta-F5A623?style=flat-square) |
+| **Horizon** | Experience | Interface única para chats, marketplace de agentes, workflows e observabilidade | ![estável](https://img.shields.io/badge/estável-1E9E64?style=flat-square) |
+| **ARGO** | Agent Platform | Plataforma low-code para criar, publicar e operar agentes autônomos — independentes em runtime, mas monitorados e mantidos pelo ARGO | ![ativo](https://img.shields.io/badge/ativo-0E9AAE?style=flat-square) |
+| **NEXUS** | Cognitive Continuity | Memória viva: consolida e publica conhecimento para agentes e humanos | ![ativo](https://img.shields.io/badge/ativo-0E9AAE?style=flat-square) |
+| **OR-OmniRouter** | Inference Control | Inferência contínua com fallback entre tiers local / free / paid | ![beta](https://img.shields.io/badge/beta-C98A1D?style=flat-square) |
+| **DataHunter** | Data Discovery | Descoberta e curadoria agêntica de dados técnicos | ![beta](https://img.shields.io/badge/beta-C98A1D?style=flat-square) |
 | **Forge** | Capability OS | Publica, descobre e compõe qualquer elemento executável da ACO | ![em desenvolvimento](https://img.shields.io/badge/em%20desenvolvimento-5C6885?style=flat-square) |
 | **DIR** | Cognitive Decision | Refina prompts e roteia para o modelo certo por custo, qualidade e risco | ![em desenvolvimento](https://img.shields.io/badge/em%20desenvolvimento-5C6885?style=flat-square) |
 | **Hydra** | Operational Intelligence | Observabilidade, LLMOps, AgentOps, FinOps e auditoria | ![em desenvolvimento](https://img.shields.io/badge/em%20desenvolvimento-5C6885?style=flat-square) |
@@ -110,6 +109,7 @@ Esses critérios operam sobre uma cadeia maior, que atravessa toda a arquitetura
 | Operational Intelligence Layer | Hydra | Observabilidade cognitiva, LLMOps, AgentOps, FinOps, auditoria, drift e qualidade | em desenvolvimento |
 
 ### Componentes independentes, adoção incremental
+
 Cada componente da ACO opera de forma autônoma e agnóstica a stack — não exige a arquitetura completa para entregar valor, nem trava a organização a um único fornecedor de IA. **ARGO** e **Horizon** são os pontos de entrada mais comuns: um agente publicado no ARGO pode atuar de forma isolada, gerenciado exclusivamente pela plataforma; o Horizon pode ser adotado como interface de chat sozinho, sem nenhum outro componente por trás.
 
 Quando conectados, os componentes se acoplam entre si e às principais stacks e vendors de IA do mercado: agentes do ARGO produzem Cognitive Objects que fluem ao NEXUS, o OR-OmniRouter fornece inferência resiliente entre múltiplos provedores, o Forge expõe capacidades a sistemas externos, e o Hydra coleta métricas e auditoria de ponta a ponta.
@@ -125,6 +125,7 @@ Na prática, a adoção pode começar pequena — um agente no ARGO, uma interfa
 | Descobrir datasets e evidências técnicas | DataHunter |
 | Ter uma interface para conversar com qualquer LLM | Horizon |
 | Preservar conhecimento entre sessões, agentes e humanos | NEXUS |
+
 <br/>
 
 ## Ciclo cognitivo operacional
@@ -163,7 +164,19 @@ A governança não é uma camada posterior. Ela atravessa todo o ecossistema —
 | Auditoria | ledger, rastreabilidade, logs, decisões | Hydra |
 | Operação | SLO, incidentes, runbooks, monitoramento | Hydra |
 
+> ⚠️ As linhas **Segurança** e **Dados** ainda não foram confirmadas por você — os componentes listados são inferência minha com base no que já validamos em outras seções. Confirme ou ajuste antes de considerar essa tabela final (posso remover este aviso assim que confirmar).
+
+<br/>
+
 ## Evolução da IA
+
+```
+LLMs → APIs → copilots → agents → multi-agent systems → cognitive infrastructure
+```
+
+A ACO se posiciona no último estágio dessa curva: não mais um agente isolado, mas a infraestrutura que os governa.
+
+<br/>
 
 ## Direção estratégica
 
@@ -188,4 +201,3 @@ A 1-AI-Ecosystem-Lab constrói uma arquitetura para:
 Interessado em conhecer a arquitetura em mais detalhes, uma demonstração ou uma conversa técnica?
 
 📧 `[seu e-mail aqui]` · 💼 `[link do LinkedIn aqui]`
-
