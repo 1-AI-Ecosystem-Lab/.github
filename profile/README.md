@@ -31,6 +31,7 @@ A ACO responde a sete limitações estruturais identificadas em arquiteturas de 
 | **Conhecimento externo não curado** — dados e evidências técnicas usados por agentes vêm de fontes não verificadas, sem proveniência | **DataHunter** descobre e cura dados técnicos com scoring de autoridade e proveniência antes de entrarem no ecossistema |
 | **Aprendizado finito e sistema passivo** — o conhecimento gerado numa interação se perde ao final dela, e o sistema não evolui nem melhora decisões com o próprio uso | **NEXUS** trata conhecimento como objeto com lifecycle e proveniência, consolidando memória episódica em semântica, procedural e organizacional — e vai além do armazenamento: cria e publica novos artefatos para consumo ativo por agentes e humanos futuros |
 | **Falta de governança e visibilidade sobre a abordagem neural dentro do raciocínio** — não é só "quem usou o quê", é como componentes neurais influenciam a decisão internamente | **Hydra** cobre observabilidade cognitiva, LLMOps, AgentOps, FinOps, auditoria, drift e qualidade — tornando essa influência rastreável e auditável, em vez de uma caixa-preta |
+| **Acesso fragmentado e inteligência acoplada à interface** — a interação humana fica ilhada em chats locais, dificultando a omnicanalidade e a governança de contexto | O **Horizon** atua como Hub de Experiência centralizado (Thin Client), desacoplando a interface da orquestração e garantindo que humanos, sistemas e bots acessem as capacidades cognitivas sob regras unificadas |
 
 
 ### De IHM para IHIAM
