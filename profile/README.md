@@ -32,6 +32,7 @@ A ACO responde a sete limitações estruturais identificadas em arquiteturas de 
 | **Aprendizado finito e sistema passivo** — o conhecimento gerado numa interação se perde ao final dela, e o sistema não evolui nem melhora decisões com o próprio uso | **NEXUS** trata conhecimento como objeto com lifecycle e proveniência, consolidando memória episódica em semântica, procedural e organizacional — e vai além do armazenamento: cria e publica novos artefatos para consumo ativo por agentes e humanos futuros |
 | **Falta de governança e visibilidade sobre a abordagem neural dentro do raciocínio** — não é só "quem usou o quê", é como componentes neurais influenciam a decisão internamente | **Hydra** cobre observabilidade cognitiva, LLMOps, AgentOps, FinOps, auditoria, drift e qualidade — tornando essa influência rastreável e auditável, em vez de uma caixa-preta |
 
+
 ### De IHM para IHIAM
 
 O modelo clássico de **IHM — Interface Homem-Máquina** — pressupõe um humano operando uma máquina determinística: o comando é executado exatamente como dado, e nada do que acontece numa interação fica disponível para a próxima.
