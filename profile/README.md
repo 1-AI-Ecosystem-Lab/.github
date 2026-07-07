@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="./assets/aco-hero-banner.svg" alt="Arquitetura Cognitiva Operacional — Inferência, decisão, conhecimento, governança e operação como um sistema integrado" width="100%" />
+  <img src="https://raw.githubusercontent.com/1-AI-Ecosystem-Lab/.github/main/profile/assets/aco-hero-banner.svg" alt="Arquitetura Cognitiva Operacional — Inferência, decisão, conhecimento, governança e operação como um sistema integrado" width="100%" />
 </div>
 
 <br/>
@@ -39,7 +39,7 @@ O modelo clássico de **IHM — Interface Homem-Máquina** — pressupõe um hum
 Em sistemas cognitivos, a IA deixa de ser apenas interface e passa a atuar como agente dentro do próprio processo de decisão. A ACO é desenhada para o paradigma **IHIAM — Interface Homem-IA-Máquina**: a IA participa ativamente da evolução do conhecimento e da tomada de decisão, não apenas media o comando do humano para a máquina.
 
 <div align="center">
-  <img src="./assets/aco-ihm-ihiam.svg" alt="Comparação entre o modelo clássico IHM (Interface Homem-Máquina), com fluxo único e sem aprendizado, e o paradigma IHIAM da ACO, com a IA participando ativamente em um loop bidirecional de decisão e aprendizado" width="100%" />
+  <img src="https://raw.githubusercontent.com/1-AI-Ecosystem-Lab/.github/main/profile/assets/aco-ihm-ihiam.svg" alt="Comparação entre o modelo clássico IHM (Interface Homem-Máquina), com fluxo único e sem aprendizado, e o paradigma IHIAM da ACO, com a IA participando ativamente em um loop bidirecional de decisão e aprendizado" width="100%" />
 </div>
 
 **Mesma tarefa, dois paradigmas** — pedido: *"me manda o relatório de vendas"*
@@ -94,7 +94,7 @@ Esses critérios operam sobre uma cadeia maior, que atravessa toda a arquitetura
 ## Mapa do ecossistema
 
 <div align="center">
-  <img src="./assets/aco-architecture-map.svg" alt="Mapa da arquitetura cognitiva operacional: da camada de experiência até a inferência, com NEXUS e DataHunter como camadas satélite e Hydra observando todos os componentes" width="100%" />
+  <img src="https://raw.githubusercontent.com/1-AI-Ecosystem-Lab/.github/main/profile/assets/aco-architecture-map.svg" alt="Mapa da arquitetura cognitiva operacional: da camada de experiência até a inferência, com NEXUS e DataHunter como camadas satélite e Hydra observando todos os componentes" width="100%" />
 </div>
 
 | Camada | Projeto | Papel | Status |
@@ -133,7 +133,7 @@ Na prática, a adoção pode começar pequena — um agente no ARGO, uma interfa
 Esse ciclo conecta uso, decisão, ação, observação e aprendizado contínuo — cada interação alimenta o próximo ciclo. Metade do loop é sustentada pelo **DIR** (decisão), a outra metade pelo **NEXUS** (aprendizado).
 
 <div align="center">
-  <img src="./assets/aco-cognitive-cycle.svg" alt="Ciclo cognitivo operacional: interação, inferência, decisão, ação, observação, aprendizado, consolidação e redistribuição em loop contínuo" width="100%" />
+  <img src="https://raw.githubusercontent.com/1-AI-Ecosystem-Lab/.github/main/profile/assets/aco-cognitive-cycle.svg" alt="Ciclo cognitivo operacional: interação, inferência, decisão, ação, observação, aprendizado, consolidação e redistribuição em loop contínuo" width="100%" />
 </div>
 
 <br/>
@@ -143,7 +143,7 @@ Esse ciclo conecta uso, decisão, ação, observação e aprendizado contínuo �
 O pipeline abaixo é o mecanismo interno do **NEXUS** para transformar uma conversa em conhecimento reutilizável — da memória episódica de uma sessão até a memória semântica de toda a organização.
 
 <div align="center">
-  <img src="./assets/aco-knowledge-pipeline.svg" alt="Pipeline de conhecimento: da conversa até a distribuição entre agentes, passando por captura, validação e consolidação" width="100%" />
+  <img src="https://raw.githubusercontent.com/1-AI-Ecosystem-Lab/.github/main/profile/assets/aco-knowledge-pipeline.svg" alt="Pipeline de conhecimento: da conversa até a distribuição entre agentes, passando por captura, validação e consolidação" width="100%" />
 </div>
 
 <br/>
