@@ -23,8 +23,8 @@ Este README apresenta a visão executiva do ecossistema. A especificação arqui
 - [ACO Cognitive Architecture](https://github.com/1-AI-Ecosystem-Lab/aco-cognitive-architecture)
 - [Índice da arquitetura normativa](https://github.com/1-AI-Ecosystem-Lab/aco-cognitive-architecture/blob/main/docs/03-arquitetura/README.md)
 - [ADRs transversais](https://github.com/1-AI-Ecosystem-Lab/aco-cognitive-architecture/tree/main/docs/03-arquitetura/decisoes)
-- [ACO-ADR-0004 — ACO Interop Envelope](https://github.com/1-AI-Ecosystem-Lab/aco-cognitive-architecture/blob/main/docs/03-arquitetura/decisoes/ADR-0004-aco-interop-envelope.md)
-- [ACO-ADR-0006 — ACO Identity Context](https://github.com/1-AI-Ecosystem-Lab/aco-cognitive-architecture/blob/main/docs/03-arquitetura/decisoes/ADR-0006-aco-identity-context.md)
+- [ACO-ADR-0004 — ACO Interop Envelope](https://github.com/1-AI-Ecosystem-Lab/aco-cognitive-architecture/blob/main/docs/03-arquitetura/decisoes/ACO-ADR-0004-aco-interop-envelope.md)
+- [ACO-ADR-0006 — ACO Identity Context](https://github.com/1-AI-Ecosystem-Lab/aco-cognitive-architecture/blob/main/docs/03-arquitetura/decisoes/ACO-ADR-0006-aco-identity-context.md)
 - [Mapa ADR → componente → implementação e estados de adoção](https://github.com/1-AI-Ecosystem-Lab/aco-cognitive-architecture/blob/main/docs/03-arquitetura/README.md#mapa-adr--componente--implementação)
 - [Regras de conformidade dos componentes](https://github.com/1-AI-Ecosystem-Lab/aco-cognitive-architecture/blob/main/docs/03-arquitetura/README.md#regras-de-conformidade-dos-componentes)
 - [Plano de revisão e conformidade dos CONOPS](https://github.com/1-AI-Ecosystem-Lab/.github/blob/main/docs/CONOPS-REVIEW-PLAN.md)
@@ -134,8 +134,8 @@ Quando conectados, os componentes se acoplam entre si e às principais stacks e 
 
 Toda comunicação que cruza a fronteira entre componentes da ACO deve seguir o **ACO Interop Envelope**, preservando a soberania dos protocolos internos de cada componente e realizando a tradução na borda. A identidade, o tenant, os papéis e as cadeias de delegação são propagados por meio do **ACO Identity Context**.
 
-- [ACO-ADR-0004 — ACO Interop Envelope](https://github.com/1-AI-Ecosystem-Lab/aco-cognitive-architecture/blob/main/docs/03-arquitetura/decisoes/ADR-0004-aco-interop-envelope.md)
-- [ACO-ADR-0006 — ACO Identity Context](https://github.com/1-AI-Ecosystem-Lab/aco-cognitive-architecture/blob/main/docs/03-arquitetura/decisoes/ADR-0006-aco-identity-context.md)
+- [ACO-ADR-0004 — ACO Interop Envelope](https://github.com/1-AI-Ecosystem-Lab/aco-cognitive-architecture/blob/main/docs/03-arquitetura/decisoes/ACO-ADR-0004-aco-interop-envelope.md)
+- [ACO-ADR-0006 — ACO Identity Context](https://github.com/1-AI-Ecosystem-Lab/aco-cognitive-architecture/blob/main/docs/03-arquitetura/decisoes/ACO-ADR-0006-aco-identity-context.md)
 
 Na prática, a adoção pode começar pequena — um agente no ARGO, uma interface no Horizon — e crescer para a arquitetura completa sem reescrever nada.
 
@@ -227,8 +227,8 @@ A 1-AI-Ecosystem-Lab constrói uma arquitetura para:
 - [ACO Cognitive Architecture](https://github.com/1-AI-Ecosystem-Lab/aco-cognitive-architecture)
 - [Índice da arquitetura normativa](https://github.com/1-AI-Ecosystem-Lab/aco-cognitive-architecture/blob/main/docs/03-arquitetura/README.md)
 - [ADRs transversais da ACO](https://github.com/1-AI-Ecosystem-Lab/aco-cognitive-architecture/tree/main/docs/03-arquitetura/decisoes)
-- [ACO-ADR-0004 — ACO Interop Envelope](https://github.com/1-AI-Ecosystem-Lab/aco-cognitive-architecture/blob/main/docs/03-arquitetura/decisoes/ADR-0004-aco-interop-envelope.md)
-- [ACO-ADR-0006 — ACO Identity Context](https://github.com/1-AI-Ecosystem-Lab/aco-cognitive-architecture/blob/main/docs/03-arquitetura/decisoes/ADR-0006-aco-identity-context.md)
+- [ACO-ADR-0004 — ACO Interop Envelope](https://github.com/1-AI-Ecosystem-Lab/aco-cognitive-architecture/blob/main/docs/03-arquitetura/decisoes/ACO-ADR-0004-aco-interop-envelope.md)
+- [ACO-ADR-0006 — ACO Identity Context](https://github.com/1-AI-Ecosystem-Lab/aco-cognitive-architecture/blob/main/docs/03-arquitetura/decisoes/ACO-ADR-0006-aco-identity-context.md)
 
 ### Conceitos de operação dos componentes
 
