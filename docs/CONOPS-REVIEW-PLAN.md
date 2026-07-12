@@ -1,18 +1,16 @@
 # Plano de Revisão dos CONOPS — 1-AI-Ecosystem-Lab
 
-> Escopo: revisão de consistência e profundidade dos CONOPS de todos os projetos da org, tendo o **NEXUS** como baseline e o **README da org** (`1-AI-Ecosystem-Lab/.github`) como fonte de verdade para nomenclatura, camada (layer) e papel de cada componente.
+> Escopo: revisão de consistência, profundidade e conformidade dos CONOPS de todos os projetos da org, tendo o **NEXUS** como baseline estrutural, o **README da org** como fonte da visão executiva e o repositório **`aco-cognitive-architecture`** como fonte normativa das decisões transversais.
 
 ## Raiz do problema de nomenclatura (fonte corrigida em 2026-07-12)
 
-Boa parte do drift de nomenclatura encontrado nos projetos (org antiga, "AIT Standard", integrações com "PKGL") **não é independente por projeto — vem de uma fonte comum**: o template `2-AI-System/ait-ai-system-project-template` (usado para gerar a estrutura `docs/` de todos os projetos) documentava, em `ECOSSISTEMA.md`, um ecossistema anterior de 5 projetos sob a org extinta `1-AI-DECISION-LAB` (`open-webui-custom`, `DIR`, `OR`, `PKGL`, `DataHunter`), com o padrão de 8 camadas batizado de "AIT Standard".
+Boa parte do drift de nomenclatura encontrado nos projetos (org antiga, "AIT Standard", integrações com "PKGL") **não é independente por projeto — vem de uma fonte comum**: o template `2-AI-System/ait-ai-system-project-template`, usado para gerar a estrutura `docs/` dos projetos, documentava um ecossistema anterior sob a org extinta `1-AI-DECISION-LAB`.
 
-**PKGL foi renomeado/evoluído para NEXUS** — confirmado: mesmos verbos operacionais ("Catalogar · Preparar · Distribuir") e o clone local órfão `PKGL-personal-knowledge-governance-layer` (remote `1-AI-DECISION-LAB`, extinto) já tem o README do NEXUS como conteúdo.
+**PKGL foi renomeado/evoluído para NEXUS.** O template já foi corrigido: `ECOSSISTEMA.md` foi reduzido a um ponteiro para este plano e para `aco-cognitive-architecture`, e "AIT Standard" foi renomeado para **ACO Component Layer Model**. Falta propagar a correção para os projetos que herdaram a nomenclatura antiga.
 
-O template já foi corrigido: `ECOSSISTEMA.md` reduzido a ponteiro para este plano e para o `aco-cognitive-architecture`, "AIT Standard" renomeado para **ACO Component Layer Model**. Falta propagar a correção para os projetos que herdaram a nomenclatura antiga — isso agora faz parte da Tarefa 1 de cada projeto abaixo.
+## Nomenclatura canônica dos componentes
 
-## Nomenclatura canônica (fonte: README da org)
-
-| Nome canônico | Repositório | Camada (Layer) | Status na org |
+| Nome canônico | Repositório | Camada | Status na org |
 |---|---|---|---|
 | Horizon | `open-webui-custom` *(rename pendente para `horizon`)* | Experience | estável |
 | ARGO | `argo-agent-platform` | Agent Platform | ativo |
@@ -23,149 +21,204 @@ O template já foi corrigido: `ECOSSISTEMA.md` reduzido a ponteiro para este pla
 | DIR | `dir-dynamic-inference-routing` | Cognitive Decision | em desenvolvimento |
 | Hydra | `hydra` | Operational Intelligence | em desenvolvimento |
 
-## Arquitetura Transversal do ACO (fonte: `aco-cognitive-architecture`)
+## Identificação canônica das ADRs
 
-**Fato novo (2026-07-11):** o repositório [`aco-cognitive-architecture`](https://github.com/1-AI-Ecosystem-Lab/aco-cognitive-architecture), pasta `docs/03-arquitetura`, contém **15 ADRs ratificados (Aceito)** com impacto transversal — obrigatórios para todos os componentes, não apenas orientação. README e CONOPS de cada projeto passam a ter um **terceiro critério de conformidade**, além do alinhamento com o próprio README da org: alinhamento com estas decisões cross-component.
+Para evitar ambiguidade entre ADRs com a mesma numeração em repositórios distintos, referências textuais devem usar o namespace do domínio:
 
-| ADR (aco) | Decisão | Vincula |
+```text
+ACO-ADR-0004
+HORIZON-ADR-0012
+ARGO-ADR-0015
+DIR-ADR-0002
+OR-ADR-0006
+NEXUS-ADR-0011
+FORGE-ADR-0001
+HYDRA-ADR-0001
+DATAHUNTER-ADR-0001
+```
+
+Regras:
+
+- [ ] usar o identificador canônico em READMEs, CONOPS, RFCs, issues, commits e referências cruzadas;
+- [ ] não renomear arquivos existentes em massa nesta etapa, para não quebrar links;
+- [ ] novos ADRs devem adotar `<NAMESPACE>-ADR-NNNN-<slug>.md` ou declarar o identificador canônico no cabeçalho;
+- [ ] planejar migração controlada dos nomes físicos, com atualização integral de links e compatibilidade documental.
+
+## Arquitetura transversal da ACO
+
+O repositório [`aco-cognitive-architecture`](https://github.com/1-AI-Ecosystem-Lab/aco-cognitive-architecture), especialmente [`docs/03-arquitetura`](https://github.com/1-AI-Ecosystem-Lab/aco-cognitive-architecture/tree/main/docs/03-arquitetura), contém as decisões ratificadas com impacto transversal. Essas decisões são obrigatórias para os componentes vinculados, não apenas orientações.
+
+| ADR canônico | Decisão | Vincula |
 |---|---|---|
-| ADR-0001 | Evolution Governance Record + protocolo de interop como contrato obrigatório entre componentes | todos |
-| ADR-0002 | Taxonomia de autoevolução (§6 da RFC-0001) como ontologia obrigatória de classificação | todos que classificam tarefas/agentes (ARGO, DIR) |
-| ADR-0003 | Critério de escopo: quando uma decisão de componente exige RFC/ADR cross-component da ACO | todos — usar antes de aceitar qualquer ADR local |
-| ADR-0004 | **ACO Interop Envelope** como contrato obrigatório entre componentes (`governance_metadata`/`security_context`/`payload`) | todos que trocam mensagens entre componentes |
-| ADR-0005 | Contrato de exportação mínimo do Hydra como interface obrigatória (adoção opcional por tenant) | Hydra (dono) + todos que exportam evidência |
-| ADR-0006 | **ACO Identity Context** como contrato obrigatório de identidade cross-component | todos que propagam identidade/roles entre componentes |
-| ADR-0007 | Autoevolução como capacidade transversal, não componente monolítico | todos |
-| ADR-0008 | Forge como autoridade de publicação de artefatos executáveis | Forge (dono) + todos que publicam artefatos |
-| ADR-0009 | Hydra como autoridade de evidência, avaliação e rollback | Hydra (dono) + todos que fazem autoevolução |
-| ADR-0010 | Evolução produtiva exige rollout progressivo e regressão contínua | todos que fazem autoevolução |
-| ADR-0011 | Separação entre memória episódica, reflexão, conhecimento e procedimento | NEXUS (dono) |
-| ADR-0012 | NEXUS como autoridade de curadoria na fronteira de reutilização de memória (gate sempre HITL) | NEXUS (dono) + todos que reutilizam memória |
-| ADR-0013 | Políticas críticas não podem ser autoalteradas pelo agente que elas governam | ARGO (policy engine), DIR (validation policy) |
-| ADR-0014 | Agentic Workstream como objeto compartilhado, **Horizon como dono** | Horizon (dono) + ARGO (produz workstream) |
-| ADR-0015 | Tipologia de casos de uso de sistemas cognitivos autoevolutivos como taxonomia oficial | todos |
+| ACO-ADR-0001 | Evolution Governance Record e governança de mutações | todos os produtores de artefatos governados |
+| ACO-ADR-0002 | Taxonomia de autoevolução como ontologia obrigatória | ARGO, DIR e classificadores |
+| ACO-ADR-0003 | Critério de escopo para RFC/ADR cross-component | todos |
+| ACO-ADR-0004 | ACO Interop Envelope obrigatório entre componentes | todos que trocam mensagens |
+| ACO-ADR-0005 | Contrato mínimo de exportação de evidências do Hydra | Hydra e emissores de evidência |
+| ACO-ADR-0006 | ACO Identity Context obrigatório | todos que propagam identidade e delegação |
+| ACO-ADR-0007 | Autoevolução como capacidade transversal | todos os aplicáveis |
+| ACO-ADR-0008 | Forge como autoridade de publicação | Forge e publicadores de artefatos |
+| ACO-ADR-0009 | Hydra como autoridade de evidência, avaliação e rollback | Hydra e componentes autoevolutivos |
+| ACO-ADR-0010 | Rollout progressivo e regressão contínua | componentes com evolução produtiva |
+| ACO-ADR-0011 | Separação entre memória episódica, reflexão, conhecimento e procedimento | NEXUS |
+| ACO-ADR-0012 | NEXUS como autoridade de curadoria para reutilização de memória | NEXUS e consumidores de memória |
+| ACO-ADR-0013 | Políticas críticas não autoalteráveis | ARGO e DIR |
+| ACO-ADR-0014 | Agentic Workstream compartilhado, com Horizon como autoridade | Horizon e ARGO |
+| ACO-ADR-0015 | Tipologia oficial de casos de uso autoevolutivos | todos |
 
-> Nota de numeração: ADR-0012 e ADR-0014 desta arquitetura **não** têm relação com o ADR-0012 e ADR-0014 do Horizon (`open-webui-custom`) — são numerações independentes em repositórios distintos.
+## Estados de adoção de uma decisão
+
+Um ADR aceito indica ratificação, mas não demonstra implementação ou conformidade. Cada decisão deve ser acompanhada em três dimensões:
+
+| Estado | Significado |
+|---|---|
+| **Ratificado** | Decisão arquitetural aprovada e normativa. |
+| **Implementado** | Código, configuração, schema ou processo correspondente existe. |
+| **Conformidade verificada** | Teste, revisão ou auditoria comprova aderência. |
+
+O registro inicial e o mapa ADR → componente → implementação estão no [README da arquitetura normativa](https://github.com/1-AI-Ecosystem-Lab/aco-cognitive-architecture/blob/main/docs/03-arquitetura/README.md).
 
 ## Status geral por projeto
 
-| Projeto | CONOPS | ADRs reais | Conformidade ACO transversal | Ação |
+| Projeto | CONOPS | ADRs locais | Conformidade ACO transversal | Ação |
 |---|---|---|---|---|
-| NEXUS | ✅ 22/22 — baseline | 19 | dono de ADR-0011/0012 — checar se já refletidos localmente | Nenhuma — referência |
-| Horizon | ✅ 22/22 | 6 (+ 2 em Proposta) | **pendências concretas mapeadas** — ver seção dedicada abaixo | Aplicar `RECONCILIACAO-HORIZON.md` |
-| ARGO | ⚠️ 20/22, gaps estruturais | 20 | checar ADR-0002/0013 (policy engine) e ADR-0014 (produz workstream) | Revisão completa + Tarefa 0 |
-| DIR | ✅ 22/22, o mais profundo (2032 linhas) | 3 (+ naming inconsistente) | checar ADR-0002/0013 (validation/fallback policy) | Revisão completa (foco leve) + Tarefa 0 |
-| OR-OmniRouter | ⚠️ 23/22, seções rasas | 20+ | checar ADR-0004/0006 (interop/identity entre providers) | Revisão completa + Tarefa 0 |
-| DataHunter | ⚠️ 22/22, item 11 sem handoff humano | 0 (só template) | checar ADR-0012 (reuso de memória/curadoria, se integra com NEXUS) | Revisão completa + formalizar ADRs + Tarefa 0 |
-| Hydra | ❌ sem `docs/`, sem CONOPS | 0 (sem `docs/`) | **dono de ADR-0005/0009** — CONOPS deve nascer já alinhado | Criar estrutura do zero + Tarefa 0 |
-| Forge | ❌ sem `docs/`, sem CONOPS | 0 (sem `docs/`) | **dono de ADR-0008** — CONOPS deve nascer já alinhado | Criar estrutura do zero + Tarefa 0 |
+| NEXUS | ✅ 22/22 — baseline | 19 | checar ACO-ADR-0011/0012 e vincular evidências | Revisão de conformidade |
+| Horizon | ✅ 22/22 | 6 (+ 2 em Proposta) | reconciliação parcial mapeada | Concluir adoção e evidências |
+| ARGO | ⚠️ 20/22, gaps estruturais | 20 | verificar ACO-ADR-0002/0013/0014 | Revisão completa |
+| DIR | ✅ 22/22, alta profundidade | 3 (+ naming inconsistente) | reconciliar ACO-ADR-0002/0013/0015 | Revisão focada |
+| OR-OmniRouter | ⚠️ 23/22, seções rasas | 20+ | incorporar ACO-ADR-0004/0006 | Revisão completa |
+| DataHunter | ⚠️ 22/22, integração superestimada | 0 (só template) | experimental e desconectado | Reenquadrar e formalizar decisões |
+| Hydra | ❌ sem CONOPS completo | 0 | dono de ACO-ADR-0005/0009 | Criar estrutura e CONOPS |
+| Forge | ❌ sem CONOPS completo | 0 | dono de ACO-ADR-0008 | Criar estrutura e CONOPS |
 
-## Checklist padrão (5 tarefas, aplicada a cada projeto)
+## Checklist padrão — seis tarefas por projeto
 
-### Tarefa 0 — Conformidade com a arquitetura transversal do ACO
-- [ ] Componente usa o **ACO Interop Envelope** (ADR-0004) ao trocar mensagens com outros componentes, ou declara explicitamente por que não se aplica ainda
-- [ ] Componente propaga identidade via **ACO Identity Context** (ADR-0006) quando age em nome de outro ator, ou declara escopo local sem propagação
-- [ ] Se o componente classifica tarefas/agentes, usa a taxonomia de autoevolução do ADR-0002/ADR-0015 (não inventa taxonomia própria)
-- [ ] Se o componente tem políticas críticas (ex.: policy engine, validation policy), confirma que elas não são autoalteráveis pelo agente que governam (ADR-0013)
-- [ ] Se o componente faz autoevolução/atualização de comportamento, usa rollout progressivo + regressão contínua (ADR-0010)
-- [ ] Se o componente exporta evidência/observabilidade, usa o contrato mínimo do Hydra (ADR-0005), sem obrigação de expor dados brutos
-- [ ] Nenhuma decisão local contradiz um ADR transversal Aceito — se contradiz, aplicar o critério de escopo do ADR-0003 (aco) para decidir se precisa de RFC/ADR cross-component
+### Tarefa 0 — Conformidade com a arquitetura transversal
+
+- [ ] Usa o **ACO Interop Envelope** (ACO-ADR-0004) em comunicação cross-component ou declara por que ainda não se aplica.
+- [ ] Propaga identidade via **ACO Identity Context** (ACO-ADR-0006), inclusive `delegation_chain` quando aplicável.
+- [ ] Se classifica tarefas ou agentes, usa ACO-ADR-0002 e ACO-ADR-0015.
+- [ ] Políticas críticas não são autoalteráveis pelo agente governado (ACO-ADR-0013).
+- [ ] Autoevolução produtiva utiliza rollout progressivo e regressão contínua (ACO-ADR-0010).
+- [ ] Exportação de evidência segue o contrato mínimo do Hydra (ACO-ADR-0005).
+- [ ] Nenhuma decisão local contradiz ADR transversal ratificado sem aplicar ACO-ADR-0003.
 
 ### Tarefa 1 — Consistência do README
-- [ ] Nome canônico usado (conforme tabela acima)
-- [ ] Sigla usada de forma consistente ao longo do documento
-- [ ] Camada (layer) declarada bate com a tabela da org
-- [ ] "Papel em uma frase" é compatível com o README da org
-- [ ] Status (estável / ativo / beta / em desenvolvimento) está atualizado
 
-### Tarefa 2 — Alinhamento CONOPS ↔ README da org
-- [ ] Seção 1 (Visão e Motivação) reflete a "limitação identificada" → "como a ACO responde" da tabela da org
-- [ ] Papel do componente no CONOPS bate com a camada declarada
-- [ ] Vocabulário (IHM/IHIAM, Cognitive Object, ACO, etc.) consistente com o README da org
+- [ ] Nome, sigla, camada e papel canônicos.
+- [ ] Status atualizado.
+- [ ] Link para a arquitetura normativa e ADRs aplicáveis.
+- [ ] Identificadores de ADR com namespace.
 
-### Tarefa 3 — Profundidade item a item (22 itens, baseline = NEXUS)
-- [ ] Todos os 22 itens presentes com numeração canônica
-- [ ] Nenhum item com profundidade muito abaixo da média do NEXUS (~64 linhas/seção) sem justificativa
-- [ ] Subitens presentes onde o NEXUS também os tem
+### Tarefa 2 — Alinhamento CONOPS ↔ visão da organização
+
+- [ ] Visão e motivação refletem a limitação resolvida pelo componente.
+- [ ] Papel e fronteiras batem com a camada declarada.
+- [ ] Vocabulário ACO consistente.
+- [ ] Estado atual não é confundido com arquitetura-alvo.
+
+### Tarefa 3 — Profundidade item a item
+
+- [ ] Todos os 22 itens presentes ou ausência justificada.
+- [ ] Profundidade proporcional ao baseline NEXUS.
+- [ ] Subitens e cenários operacionais suficientes.
 
 ### Tarefa 4 — Leitura integral
-- [ ] Estrutura lógica: sequência das seções coerente, sem contradição entre elas
-- [ ] Escopo/objetivo consistentes (não mistura estágio MVP com produção madura)
-- [ ] Gaps estruturais listados explicitamente
-- [ ] Links de navegação para outros documentos (ADRs, SRS, sprints) presentes e válidos
-- [ ] Lista exaustiva de questões em aberto, cada uma citando a ADR relacionada (existente ou "ADR a criar")
 
----
+- [ ] Estrutura lógica e sem contradições.
+- [ ] Escopo e maturidade consistentes.
+- [ ] Links para ADRs, SRS, SSDD e sprints válidos.
+- [ ] Questões abertas citam ADR existente ou ADR a criar.
+
+### Tarefa 5 — Evidência de implementação e conformidade
+
+- [ ] Cada ADR aplicável possui estado: Ratificado, Implementado e Conformidade verificada.
+- [ ] Implementação possui link para código, configuração, schema, release ou procedimento.
+- [ ] Conformidade possui teste de contrato, revisão, auditoria ou evidência do Hydra.
+- [ ] A matriz em `docs/03-arquitetura/README.md` foi atualizada.
+- [ ] Declarações sem evidência usam `A verificar`, nunca `Conforme`.
 
 ## Tarefas específicas por projeto
 
 ### 1. ARGO (`argo-agent-platform`)
-ADRs disponíveis: 0001–0020 (langgraph, contrato retrieve-knowledge, avaliação de grafos, fallback provider, tool gateway, auditoria, classificação, api-first, health dashboard, log assíncrono, segurança de endpoints abertos, authn gap/interrupt-resume, reranker, jwt/rbac, policy engine, integration registry, arquitetura UI, plataforma de avaliação, studio deploy, prompts como artefatos vivos).
 
-Gap conhecido: CONOPS sem seção equivalente a **"Requisitos Operacionais por Camada"** e sem **"Handoff para Curadoria Humana e Revisão Operacional"**. Ao revisar, checar se ADR-0011 (segurança de endpoints abertos) ou ADR-0012 (authn gap / interrupt-resume) já cobrem esse handoff — pode ser que a decisão exista em ADR mas nunca tenha subido pro CONOPS.
+- [ ] completar as seções equivalentes a **Requisitos Operacionais por Camada** e **Handoff para Curadoria Humana e Revisão Operacional**;
+- [ ] verificar se o policy engine cumpre ACO-ADR-0013;
+- [ ] reconciliar a classificação local com ACO-ADR-0002 e ACO-ADR-0015;
+- [ ] definir como o ARGO produz e atualiza o Agentic Workstream conforme ACO-ADR-0014;
+- [ ] propagar ACO Identity Context e `delegation_chain` em ações de agentes;
+- [ ] vincular testes ou evidências de conformidade.
 
 ### 2. DIR (`dir-dynamic-inference-routing`)
-ADRs disponíveis: `adr-001-scoring-model`, `adr-002-validation-policy`, `adr-003-fallback-policy` (+ template). Nomenclatura de arquivo inconsistente com o padrão da org (`ADR-0001-...` maiúsculo/4 dígitos vs `adr-00X-...` minúsculo/3 dígitos) — endereçar na Tarefa 1.
 
-CONOPS já é o mais completo do ecossistema — foco aqui é Tarefa 1 e 2 (naming/alinhamento), Tarefas 3 e 4 tendem a ser rápidas.
+- [ ] adotar identificadores canônicos `DIR-ADR-NNNN` nas referências;
+- [ ] migrar gradualmente arquivos `adr-00X-*` para o padrão definido, sem quebrar links;
+- [ ] reconciliar scoring e classificação com ACO-ADR-0002/0015;
+- [ ] confirmar que validation/fallback policies cumprem ACO-ADR-0013;
+- [ ] documentar ACO Interop Envelope e ACO Identity Context na borda;
+- [ ] manter separação explícita: DIR decide, OR executa a rota.
 
 ### 3. OR-OmniRouter (`or-omni-router`)
-CONOPS tem item extra (23 em vez de 22): **"22. Posição no Ecossistema AIT"** — nome desatualizado, a org não se chama mais "AIT". Corrigir para "1-AI-Ecosystem-Lab" ou "ACO".
 
-Seção 11 (Handoff) é a mais rasa de todo o ecossistema (15 linhas) — cruzar com os ~20 ADRs existentes (ex: ADR-0006 autenticação/segurança do painel) para ver se o processo de handoff já está decidido em ADR e só falta detalhar no CONOPS.
+- [ ] substituir "Ecossistema AIT" por ACO;
+- [ ] aprofundar a seção de handoff;
+- [ ] incorporar ACO-ADR-0004 no gateway de entrada e saída;
+- [ ] incorporar ACO-ADR-0006 para identidade, tenant e delegação;
+- [ ] mapear telemetria de execução ao contrato de exportação do Hydra;
+- [ ] registrar testes de compatibilidade de envelope, falha fechada e correlação por `trace_id`.
 
 ### 4. DataHunter
-Único projeto com CONOPS completo (22/22) mas **zero ADRs reais** — só o template. Há decisões já implementadas no código (`analyzer.py`, `downloader.py`, fontes Kaggle/HF/Zenodo, scoring de autoridade) que nunca foram formalizadas.
 
-**Achado confirmado (2026-07-12): "PKGL" = nome antigo do NEXUS.** O template-fonte (`2-AI-System/ait-ai-system-project-template`) documentava um ecossistema anterior de 5 projetos sob a org extinta `1-AI-DECISION-LAB` (`open-webui-custom`, `DIR`, `OR`, `PKGL`, `DataHunter`). PKGL tinha exatamente os mesmos verbos operacionais do NEXUS ("Catalogar · Preparar · Distribuir") — confirmado comparando o clone local órfão `~/GitHub/PKGL-personal-knowledge-governance-layer` (remote aponta pro `1-AI-DECISION-LAB` extinto, mas o conteúdo do README já é literalmente o NEXUS). PKGL foi renomeado/evoluído para NEXUS; o CONOPS do DataHunter nunca foi atualizado após essa transição.
+O código é experimental e atualmente desconectado da ACO. O CONOPS superestima a maturidade e descreve integração com o nome antigo PKGL como se fosse corrente.
 
-Gap (revisado): item 11 ("Integração com PKGL — Sinais de Confronto") referencia um componente que não existe mais com esse nome. Toda a arquitetura de integração downstream do DataHunter (§1.2, §2.1, §3.2-3.4, §6, §9.3, §11 inteiro, §12-13, §17.5, §19.1, §21.1-Q03) é modelada em torno do PKGL.
-
-**Contexto confirmado pelo dono do projeto (2026-07-12): o código do DataHunter é experimental e está totalmente desconectado do ACO.** Isso rebaixa a gravidade do achado — não é uma decisão arquitetural com peso de produção (não precisa de ADR de reconciliação), é o CONOPS superestimando a maturidade e a conectividade real do projeto. O documento apresenta a integração com "Sinais de Confronto" como contrato vigente, quando na prática não há integração ativa com nenhum componente do ACO. Correção é de enquadramento, não de arquitetura: reescrever as seções para refletir o estado real (projeto standalone/experimental) e mover a integração com o NEXUS para o roteiro/roadmap como algo futuro, não corrente.
-
-Também "AIT Standard" (linha 6, 65, 100, 219, roadmap Fase 0/Histórico de Versões) e 3 variantes do nome antigo da org ("1-AI-DECISION-LAB", "AI-DECISION-LAB", "AI Decision Lab") aparecem no README — herdados do mesmo template. O template-fonte já foi corrigido (`ECOSSISTEMA.md` reduzido a ponteiro, termo renomeado para "ACO Component Layer Model") — falta propagar a correção para o README/CONOPS do DataHunter.
-
-Ação: (1) corrigir nomenclatura da org e "AIT Standard" no README; (2) reescrever as seções de integração para refletir o estado experimental/desconectado real, movendo "NEXUS" para o roadmap em vez de tratá-lo como parceiro ativo; (3) formalizar ADRs retroativas para as demais decisões já implementadas no código, quando fizer sentido dado o estágio experimental.
+- [ ] substituir PKGL por NEXUS apenas nas integrações futuras planejadas;
+- [ ] reenquadrar o projeto como standalone/experimental no estado atual;
+- [ ] mover integração NEXUS para roadmap;
+- [ ] corrigir "AIT Standard" e nomes antigos da organização;
+- [ ] formalizar ADRs retroativas quando houver decisão estável;
+- [ ] não declarar conformidade cross-component antes de existir integração e teste.
 
 ### 5. Hydra
-Sem `docs/`, sem CONOPS, sem ADRs — só README (visão/produto, robusto). Camada: Operational Intelligence (observabilidade cognitiva, LLMOps, AgentOps, FinOps, auditoria, drift, qualidade).
 
-Ação:
-1. Criar estrutura `docs/` a partir do `ait-ai-system-project-template`
-2. Redigir CONOPS usando o NEXUS como referência estrutural, adaptado ao domínio de observabilidade
-3. Formalizar como ADRs as decisões já implícitas no README (ex: pipeline "Evento → Coleta → Correlação → Análise → Indicadores → Ação")
+- [ ] criar estrutura `docs/` e CONOPS completo;
+- [ ] usar ACO-ADR-0005 e ACO-ADR-0009 como requisitos fundadores;
+- [ ] documentar pipeline Evento → Coleta → Correlação → Análise → Indicadores → Ação;
+- [ ] definir ingestão, correlação, avaliação, rollback e retenção de evidências;
+- [ ] implementar a própria capacidade de verificar conformidade dos demais componentes;
+- [ ] publicar contratos, schemas e testes de exportação.
 
 ### 6. Forge
-Mesma situação de Hydra — sem `docs/`, sem CONOPS, sem ADRs, só README robusto. Camada: Capability OS (publica, descobre, governa e compõe elementos executáveis da ACO).
 
-Ação: mesmos 3 passos de Hydra.
-
----
+- [ ] criar estrutura `docs/` e CONOPS completo;
+- [ ] usar ACO-ADR-0008 como requisito fundador;
+- [ ] formalizar contrato de publicação e lifecycle de artefatos executáveis;
+- [ ] incorporar envelope, identidade e rollout progressivo;
+- [ ] vincular publicação, promoção, depreciação e rollback a evidências do Hydra;
+- [ ] publicar schemas e testes de contrato.
 
 ## Ordem sugerida de execução
 
-1. **Hydra e Forge** — criar estrutura do zero (maior gap, bloqueia qualquer comparação futura)
-2. **DataHunter** — formalizar ADRs retroativas + resolver dúvida do item 11
-3. **ARGO** — gaps estruturais mais graves entre os que já têm CONOPS
-4. **OR-OmniRouter** — corrigir nome desatualizado "AIT" + aprofundar seção de Handoff
-5. **DIR** — já é o mais completo; revisão de naming/alinhamento apenas
+1. **Hydra e Forge** — criar documentação e contratos fundadores.
+2. **ARGO** — policy engine, taxonomia, identidade e workstream.
+3. **OR-OmniRouter** — envelope, identidade e telemetria.
+4. **DIR** — políticas, taxonomia e nomenclatura.
+5. **DataHunter** — reenquadramento experimental e roadmap NEXUS.
+6. **NEXUS e Horizon** — consolidar evidências da adoção já parcialmente documentada.
 
-## Horizon — pendências concretas (fonte: `RECONCILIACAO-HORIZON.md`)
+## Horizon — pendências concretas
 
-CONOPS considerado ok; a pendência de "revisar os ADRs" **não é genérica** — já existe um documento pronto (`aco-cognitive-architecture/docs/03-arquitetura/decisoes/RECONCILIACAO-HORIZON.md`, rascunhado em 2026-07-11, ainda não aplicado no repo do Horizon) com o texto exato de cada nota de reconciliação. Nenhuma decisão já Aceita do Horizon é invalidada — são pontes declaradas, sem retrabalho.
+- [ ] **HORIZON-ADR-0003** — reconciliar HIP com ACO Interop Envelope.
+- [ ] **HORIZON-ADR-0004** — habilitar exportação opcional de sinais agregados para Hydra.
+- [ ] **HORIZON-ADR-0006** — mapear `tokens_avoided` e `cost_estimate` ao contrato Hydra.
+- [ ] **HORIZON-ADR-0012** — preencher decisão de identidade e tradução para `aco_identity_context`.
+- [ ] **HORIZON-ADR-0014** — definir alimentação do Hydra pelos traces técnicos.
 
-- [ ] **ADR-0003** (Protocolo Interno de Agentes / Gateway MCP) — colar nota: o HIP permanece intacto; ao comunicar com outro componente ACO, a mensagem trafega dentro do ACO Interop Envelope (`core_payload` do HIP ocupa `payload.body`)
-- [ ] **ADR-0004** (Persistência de Logs de Observabilidade e Soberania) — colar nota: arquitetura dual (OTel + tabelas relacionais) continua fonte de verdade local; habilitar opcionalmente o contrato de exportação mínimo do Hydra (sinais agregados `evolution`/`cost`/`quality`, nunca dados brutos) para cumprir a promessa do CONOPS §3 sobre o Hydra
-- [ ] **ADR-0006** (Medição de Redução de Repetição / FinOps) — colar nota: `tokens_avoided`/`cost_estimate` já calculados mapeiam direto para o campo `cost` do contrato de exportação do Hydra, sem recálculo
-- [ ] **ADR-0012** (Gestão de Identidade, SSO e Cofre Local — ainda **Status Proposta**, seção de Decisão vazia) — **intervenção preventiva**: ao preencher a decisão, declarar como o IdP escolhido traduz identidade local para o `aco_identity_context` (actor_type, actor_id, tenant_id, roles, provenance, delegation_chain) e como trata `delegation_chain` para agentes agindo em nome de usuários (cenário já previsto no CONOPS §8)
-- [ ] **ADR-0014** (Stack de Observabilidade Técnica e Tracing — ainda **Status Proposta**, seção de Decisão vazia) — ao preencher a decisão, declarar se/como os traces técnicos alimentam o Hydra como sinal `quality` do contrato de exportação
+## Fora de escopo imediato
 
-Responsabilidade de aplicação: equipe do Horizon (Marco). Este plano não altera o repositório do Horizon.
-
-## Fora de escopo deste plano
-
-- **NEXUS** — considerado baseline, sem revisão necessária (mas é dono de ADR-0011/ADR-0012 da arquitetura transversal — vale checar se já refletidos localmente)
+- renomeação física em massa de todos os ADRs existentes;
+- declaração de conformidade sem evidência técnica;
+- integração produtiva do DataHunter antes do reenquadramento do CONOPS.
 
 ---
 
-*Gerado a partir de análise comparativa dos 8 repositórios da org em 2026-07-09. Atualizado em 2026-07-11 com a camada de conformidade transversal do `aco-cognitive-architecture`.*
+*Gerado a partir de análise comparativa dos oito repositórios. Atualizado em 2026-07-12 com namespaces canônicos, estados de adoção, matriz ADR → componente → implementação e backlog de conformidade.*
