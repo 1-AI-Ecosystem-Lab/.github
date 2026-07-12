@@ -12,9 +12,17 @@ A **1-AI-Ecosystem-Lab** desenvolve a **Arquitetura Cognitiva Operacional (ACO)*
 
 A isso se soma um problema pouco discutido: **cada plataforma expõe suas próprias tools e protocolos** — function calling, MCP, plugins proprietários — criando uma integração fragmentada em vez de uma camada única de execução. E o mais crítico de todos: **o conhecimento gerado em cada conversa com um LLM se perde ao final da sessão**, em vez de virar um ativo que a organização acumula e reutiliza.
 
-A ACO endereça isso com um conjunto de componentes modulares e independentes — hoje já em operação real, não apenas em design — que cobrem inferência, decisão, memória, execução multiagente e observabilidade de ponta a ponta. Cada componente pode ser adotado isoladamente e se acopla às principais stacks e vendors de IA do mercado: não é um pacote fechado que exige adoção completa, nem prende a organização a um único fornecedor.
+A ACO endereça isso com um conjunto de componentes modulares e independentes, em diferentes estágios de maturidade, que cobrem inferência, decisão, memória, execução multiagente e observabilidade de ponta a ponta. Cada componente pode ser adotado isoladamente e se acopla às principais stacks e vendors de IA do mercado: não é um pacote fechado que exige adoção completa, nem prende a organização a um único fornecedor.
 
 Este README é a porta de entrada da arquitetura: o que já está rodando, como as peças se conectam, e por que o modelo de governança-como-infraestrutura é a próxima fronteira além de "só criar mais um agente".
+
+### Escopo e fontes normativas
+
+Este README apresenta a visão executiva da **Arquitetura Cognitiva Operacional — ACO**, seus componentes, responsabilidades predominantes e forma de composição.
+
+A especificação arquitetural normativa da ACO — incluindo contratos cross-component, RFCs, Architecture Decision Records, schemas compartilhados e regras de conformidade — está mantida no repositório [ACO Cognitive Architecture](https://github.com/1-AI-Ecosystem-Lab/aco-cognitive-architecture).
+
+Em caso de divergência entre uma descrição resumida deste README e uma decisão arquitetural ratificada, prevalece a decisão registrada no repositório de arquitetura. Os CONOPS, ADRs locais, requisitos e documentos de implementação de cada componente complementam a arquitetura transversal sem substituí-la.
 
 <br/>
 
@@ -59,14 +67,14 @@ Em sistemas cognitivos, a IA deixa de ser apenas interface e passa a atuar como 
 
 | Componente | Camada | Papel em uma frase | Status |
 |---|---|---|---|
-| **Horizon** | Experience | Interface única para chats, marketplace de agentes, workflows e observabilidade | ![estável](https://img.shields.io/badge/estável-1E9E64?style=flat-square) |
-| **ARGO** | Agent Platform | Plataforma low-code para criar, publicar e operar agentes autônomos — independentes em runtime, mas monitorados e mantidos pelo ARGO | ![ativo](https://img.shields.io/badge/ativo-0E9AAE?style=flat-square) |
-| **NEXUS** | Cognitive Continuity | Memória viva: consolida e publica conhecimento para agentes e humanos | ![ativo](https://img.shields.io/badge/ativo-0E9AAE?style=flat-square) |
-| **OR-OmniRouter** | Inference Control | Inferência contínua com fallback entre tiers local / free / paid | ![beta](https://img.shields.io/badge/beta-C98A1D?style=flat-square) |
-| **DataHunter** | Data Discovery | Descoberta e curadoria agêntica de dados técnicos | ![beta](https://img.shields.io/badge/beta-C98A1D?style=flat-square) |
-| **Forge** | Capability OS | Publica, descobre e compõe qualquer elemento executável da ACO | ![em desenvolvimento](https://img.shields.io/badge/em%20desenvolvimento-5C6885?style=flat-square) |
-| **DIR** | Cognitive Decision | Refina prompts e roteia para o modelo certo por custo, qualidade e risco | ![em desenvolvimento](https://img.shields.io/badge/em%20desenvolvimento-5C6885?style=flat-square) |
-| **Hydra** | Operational Intelligence | Observabilidade, LLMOps, AgentOps, FinOps e auditoria | ![em desenvolvimento](https://img.shields.io/badge/em%20desenvolvimento-5C6885?style=flat-square) |
+| **[Horizon](https://github.com/1-AI-Ecosystem-Lab/open-webui-custom)** | Experience | Interface única para chats, marketplace de agentes, workflows e observabilidade | ![estável](https://img.shields.io/badge/estável-1E9E64?style=flat-square) |
+| **[ARGO](https://github.com/1-AI-Ecosystem-Lab/argo-agent-platform)** | Agent Platform | Plataforma low-code para criar, publicar e operar agentes autônomos — independentes em runtime, mas monitorados e mantidos pelo ARGO | ![ativo](https://img.shields.io/badge/ativo-0E9AAE?style=flat-square) |
+| **[NEXUS](https://github.com/1-AI-Ecosystem-Lab/Nexus-congnitive-continuity-infraestructure)** | Cognitive Continuity | Memória viva: consolida e publica conhecimento para agentes e humanos | ![ativo](https://img.shields.io/badge/ativo-0E9AAE?style=flat-square) |
+| **[OR-OmniRouter](https://github.com/1-AI-Ecosystem-Lab/or-omni-router)** | Inference Control | Inferência contínua com fallback entre tiers local / free / paid | ![beta](https://img.shields.io/badge/beta-C98A1D?style=flat-square) |
+| **[DataHunter](https://github.com/1-AI-Ecosystem-Lab/DataHunter)** | Data Discovery | Descoberta e curadoria agêntica de dados técnicos | ![beta](https://img.shields.io/badge/beta-C98A1D?style=flat-square) |
+| **[Forge](https://github.com/1-AI-Ecosystem-Lab/forge)** | Capability OS | Publica, descobre e compõe qualquer elemento executável da ACO | ![em desenvolvimento](https://img.shields.io/badge/em%20desenvolvimento-5C6885?style=flat-square) |
+| **[DIR](https://github.com/1-AI-Ecosystem-Lab/dir-dynamic-inference-routing)** | Cognitive Decision | Refina prompts e roteia para o modelo certo por custo, qualidade e risco | ![em desenvolvimento](https://img.shields.io/badge/em%20desenvolvimento-5C6885?style=flat-square) |
+| **[Hydra](https://github.com/1-AI-Ecosystem-Lab/hydra)** | Operational Intelligence | Observabilidade, LLMOps, AgentOps, FinOps e auditoria | ![em desenvolvimento](https://img.shields.io/badge/em%20desenvolvimento-5C6885?style=flat-square) |
 
 <br/>
 
@@ -101,14 +109,16 @@ Esses critérios operam sobre uma cadeia maior, que atravessa toda a arquitetura
 
 | Camada | Projeto | Papel | Status |
 |---|---|---|---|
-| Experience Layer | Horizon | Hub de experiência cognitiva para chats, marketplace de agentes, workflows, conhecimento e observabilidade | estável |
-| Agent Platform Layer | ARGO | Plataforma low-code para criar, publicar e operar agentes autônomos com supervisão humana — independentes em runtime, mas monitorados e mantidos pelo ARGO | ativo |
-| Capability OS Layer | Forge | OS de capacidades — publica, descobre, governa e compõe qualquer elemento executável da ACO | em desenvolvimento |
-| Cognitive Decision Layer | DIR | Refina prompts ambíguos sem custo e roteia dinamicamente para o modelo certo por custo, qualidade e risco | em desenvolvimento |
-| Inference Control Layer | OR-OmniRouter | Camada de inferência contínua com fallback entre tiers local, free cloud e paid | beta |
-| Data Discovery Layer | DataHunter | Agente de descoberta e curadoria de dados técnicos com scoring de autoridade e proveniência | beta |
-| Cognitive Continuity Layer | NEXUS | Memória viva: cria e publica conhecimento (semântico, procedural e organizacional) com lifecycle e proveniência, para consumo de agentes e humanos | ativo |
-| Operational Intelligence Layer | Hydra | Observabilidade cognitiva, LLMOps, AgentOps, FinOps, auditoria, drift e qualidade | em desenvolvimento |
+| Experience Layer | [Horizon](https://github.com/1-AI-Ecosystem-Lab/open-webui-custom) | Hub de experiência cognitiva para chats, marketplace de agentes, workflows, conhecimento e observabilidade | estável |
+| Agent Platform Layer | [ARGO](https://github.com/1-AI-Ecosystem-Lab/argo-agent-platform) | Plataforma low-code para criar, publicar e operar agentes autônomos com supervisão humana — independentes em runtime, mas monitorados e mantidos pelo ARGO | ativo |
+| Capability OS Layer | [Forge](https://github.com/1-AI-Ecosystem-Lab/forge) | OS de capacidades — publica, descobre, governa e compõe qualquer elemento executável da ACO | em desenvolvimento |
+| Cognitive Decision Layer | [DIR](https://github.com/1-AI-Ecosystem-Lab/dir-dynamic-inference-routing) | Refina prompts ambíguos sem custo e roteia dinamicamente para o modelo certo por custo, qualidade e risco | em desenvolvimento |
+| Inference Control Layer | [OR-OmniRouter](https://github.com/1-AI-Ecosystem-Lab/or-omni-router) | Camada de inferência contínua com fallback entre tiers local, free cloud e paid | beta |
+| Data Discovery Layer | [DataHunter](https://github.com/1-AI-Ecosystem-Lab/DataHunter) | Agente de descoberta e curadoria de dados técnicos com scoring de autoridade e proveniência | beta |
+| Cognitive Continuity Layer | [NEXUS](https://github.com/1-AI-Ecosystem-Lab/Nexus-congnitive-continuity-infraestructure) | Memória viva: cria e publica conhecimento (semântico, procedural e organizacional) com lifecycle e proveniência, para consumo de agentes e humanos | ativo |
+| Operational Intelligence Layer | [Hydra](https://github.com/1-AI-Ecosystem-Lab/hydra) | Observabilidade cognitiva, LLMOps, AgentOps, FinOps, auditoria, drift e qualidade | em desenvolvimento |
+
+> **Referência arquitetural:** responsabilidades transversais, autoridades de domínio e contratos de interoperabilidade entre os componentes são definidos no repositório [ACO Cognitive Architecture](https://github.com/1-AI-Ecosystem-Lab/aco-cognitive-architecture).
 
 ### Componentes independentes, adoção incremental
 
@@ -116,17 +126,25 @@ Cada componente da ACO opera de forma autônoma e agnóstica a stack — não ex
 
 Quando conectados, os componentes se acoplam entre si e às principais stacks e vendors de IA do mercado: agentes do ARGO produzem Cognitive Objects que fluem ao NEXUS, o OR-OmniRouter fornece inferência resiliente entre múltiplos provedores, o Forge expõe capacidades a sistemas externos, e o Hydra coleta métricas e auditoria de ponta a ponta.
 
+Toda comunicação que cruza a fronteira entre componentes da ACO deve seguir o **ACO Interop Envelope**, preservando a soberania dos protocolos internos de cada componente e realizando a tradução na borda. A identidade, o tenant, os papéis e as cadeias de delegação são propagados por meio do **ACO Identity Context**.
+
+- [ACO-ADR-0004 — ACO Interop Envelope](https://github.com/1-AI-Ecosystem-Lab/aco-cognitive-architecture/blob/main/docs/03-arquitetura/decisoes/ADR-0004-aco-interop-envelope.md)
+- [ACO-ADR-0006 — ACO Identity Context](https://github.com/1-AI-Ecosystem-Lab/aco-cognitive-architecture/blob/main/docs/03-arquitetura/decisoes/ADR-0006-aco-identity-context.md)
+
 Na prática, a adoção pode começar pequena — um agente no ARGO, uma interface no Horizon — e crescer para a arquitetura completa sem reescrever nada.
 
 ### Por onde começar
 
-| Objetivo | Projeto |
-|---|---|
-| Consumir LLMs com resiliência e fallback automático | OR-OmniRouter |
-| Criar, publicar e operar agentes com supervisão humana | ARGO |
-| Descobrir datasets e evidências técnicas | DataHunter |
-| Ter uma interface para conversar com qualquer LLM | Horizon |
-| Preservar conhecimento entre sessões, agentes e humanos | NEXUS |
+| Objetivo | Projeto | Disponibilidade |
+|---|---|---|
+| Consumir LLMs com resiliência e fallback automático | OR-OmniRouter | beta |
+| Criar, publicar e operar agentes com supervisão humana | ARGO | ativo |
+| Descobrir datasets e evidências técnicas | DataHunter | beta |
+| Ter uma interface para conversar com qualquer LLM | Horizon | estável |
+| Preservar conhecimento entre sessões, agentes e humanos | NEXUS | ativo |
+| Governar a escolha de modelos por custo, qualidade e risco | DIR | em desenvolvimento |
+| Publicar e reutilizar capacidades executáveis | Forge | em desenvolvimento |
+| Observar custo, qualidade, drift e evolução operacional | Hydra | em desenvolvimento |
 
 <br/>
 
@@ -152,21 +170,19 @@ O pipeline abaixo é o mecanismo interno do **NEXUS** para transformar uma conve
 
 ## Governança cognitiva transversal
 
-A governança não é uma camada posterior. Ela atravessa todo o ecossistema — cada domínio abaixo é aplicado por um ou mais componentes específicos, não por uma camada única de compliance.
+A governança não é uma camada posterior. Ela atravessa todo o ecossistema — cada domínio abaixo é aplicado por um ou mais componentes específicos, não por uma camada única de compliance. As decisões normativas e a distribuição formal de autoridades estão registradas nos ADRs transversais da ACO.
 
 | Domínio | Exemplos | Componente |
 |---|---|---|
 | Segurança | RBAC, segredos, menor privilégio, isolamento | ARGO, Forge |
 | Dados | LGPD, sensibilidade, retenção, soberania | DataHunter, NEXUS |
-| Modelos | provedores autorizados, tiers, fallback permitido | OR-OmniRouter |
+| Modelos | provedores autorizados, tiers, fallback permitido | DIR, OR-OmniRouter |
 | Agentes | escopo, ferramentas, autonomia, HITL obrigatório | ARGO |
 | Conhecimento | proveniência, validade, conflito, decay | NEXUS |
 | Custos | budget, quota, FinOps, paid fallback | OR-OmniRouter, Hydra |
 | Qualidade | evals, validação, grounding, regressão | Hydra |
 | Auditoria | ledger, rastreabilidade, logs, decisões | Hydra |
 | Operação | SLO, incidentes, runbooks, monitoramento | Hydra |
-
-> ⚠️ As linhas **Segurança** e **Dados** ainda não foram confirmadas por você — os componentes listados são inferência minha com base no que já validamos em outras seções. Confirme ou ajuste antes de considerar essa tabela final (posso remover este aviso assim que confirmar).
 
 <br/>
 
@@ -198,8 +214,29 @@ A 1-AI-Ecosystem-Lab constrói uma arquitetura para:
 
 <br/>
 
-## Fale com a gente
+## Referências arquiteturais e documentação do ecossistema
 
-Interessado em conhecer a arquitetura em mais detalhes, uma demonstração ou uma conversa técnica?
+### Arquitetura transversal
 
-📧 `[seu e-mail aqui]` · 💼 `[link do LinkedIn aqui]`
+- [ACO Cognitive Architecture](https://github.com/1-AI-Ecosystem-Lab/aco-cognitive-architecture)
+- [ADRs transversais da ACO](https://github.com/1-AI-Ecosystem-Lab/aco-cognitive-architecture/tree/main/docs/03-arquitetura/decisoes)
+- [ACO-ADR-0004 — ACO Interop Envelope](https://github.com/1-AI-Ecosystem-Lab/aco-cognitive-architecture/blob/main/docs/03-arquitetura/decisoes/ADR-0004-aco-interop-envelope.md)
+- [ACO-ADR-0006 — ACO Identity Context](https://github.com/1-AI-Ecosystem-Lab/aco-cognitive-architecture/blob/main/docs/03-arquitetura/decisoes/ADR-0006-aco-identity-context.md)
+
+### Conceitos de operação dos componentes
+
+- [Horizon — CONOPS](https://github.com/1-AI-Ecosystem-Lab/open-webui-custom/blob/main/docs/01-produto/ConOps.md)
+- [ARGO — CONOPS](https://github.com/1-AI-Ecosystem-Lab/argo-agent-platform/blob/main/docs/01-produto/CONOPS.md)
+- [NEXUS — CONOPS](https://github.com/1-AI-Ecosystem-Lab/Nexus-congnitive-continuity-infraestructure/blob/main/docs/01-produto/ConOps.md)
+- [DIR — CONOPS](https://github.com/1-AI-Ecosystem-Lab/dir-dynamic-inference-routing/blob/master/docs/01-produto/ConOps.md)
+- [OR-OmniRouter — CONOPS](https://github.com/1-AI-Ecosystem-Lab/or-omni-router/blob/main/docs/01-produto/CONOPS.md)
+- [DataHunter — CONOPS](https://github.com/1-AI-Ecosystem-Lab/DataHunter/blob/main/docs/01-produto/CONOPS.md)
+
+### Governança documental
+
+- [Plano de revisão dos CONOPS](https://github.com/1-AI-Ecosystem-Lab/.github/blob/main/docs/CONOPS-REVIEW-PLAN.md)
+
+### Componentes com documentação em evolução
+
+- [Forge](https://github.com/1-AI-Ecosystem-Lab/forge)
+- [Hydra](https://github.com/1-AI-Ecosystem-Lab/hydra)
