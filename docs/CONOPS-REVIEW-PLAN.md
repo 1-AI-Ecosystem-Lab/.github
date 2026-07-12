@@ -2,6 +2,14 @@
 
 > Escopo: revisão de consistência e profundidade dos CONOPS de todos os projetos da org, tendo o **NEXUS** como baseline e o **README da org** (`1-AI-Ecosystem-Lab/.github`) como fonte de verdade para nomenclatura, camada (layer) e papel de cada componente.
 
+## Raiz do problema de nomenclatura (fonte corrigida em 2026-07-12)
+
+Boa parte do drift de nomenclatura encontrado nos projetos (org antiga, "AIT Standard", integrações com "PKGL") **não é independente por projeto — vem de uma fonte comum**: o template `2-AI-System/ait-ai-system-project-template` (usado para gerar a estrutura `docs/` de todos os projetos) documentava, em `ECOSSISTEMA.md`, um ecossistema anterior de 5 projetos sob a org extinta `1-AI-DECISION-LAB` (`open-webui-custom`, `DIR`, `OR`, `PKGL`, `DataHunter`), com o padrão de 8 camadas batizado de "AIT Standard".
+
+**PKGL foi renomeado/evoluído para NEXUS** — confirmado: mesmos verbos operacionais ("Catalogar · Preparar · Distribuir") e o clone local órfão `PKGL-personal-knowledge-governance-layer` (remote `1-AI-DECISION-LAB`, extinto) já tem o README do NEXUS como conteúdo.
+
+O template já foi corrigido: `ECOSSISTEMA.md` reduzido a ponteiro para este plano e para o `aco-cognitive-architecture`, "AIT Standard" renomeado para **ACO Component Layer Model**. Falta propagar a correção para os projetos que herdaram a nomenclatura antiga — isso agora faz parte da Tarefa 1 de cada projeto abaixo.
+
 ## Nomenclatura canônica (fonte: README da org)
 
 | Nome canônico | Repositório | Camada (Layer) | Status na org |
@@ -109,9 +117,13 @@ Seção 11 (Handoff) é a mais rasa de todo o ecossistema (15 linhas) — cruzar
 ### 4. DataHunter
 Único projeto com CONOPS completo (22/22) mas **zero ADRs reais** — só o template. Há decisões já implementadas no código (`analyzer.py`, `downloader.py`, fontes Kaggle/HF/Zenodo, scoring de autoridade) que nunca foram formalizadas.
 
-Gap: item 11 substitui **"Handoff para Curadoria Humana"** por **"Integração com PKGL"**. Confirmar se é uma decisão intencional (curadoria delegada ao PKGL) ou lacuna real — se intencional, documentar como ADR.
+**Achado confirmado (2026-07-12): "PKGL" = nome antigo do NEXUS.** O template-fonte (`2-AI-System/ait-ai-system-project-template`) documentava um ecossistema anterior de 5 projetos sob a org extinta `1-AI-DECISION-LAB` (`open-webui-custom`, `DIR`, `OR`, `PKGL`, `DataHunter`). PKGL tinha exatamente os mesmos verbos operacionais do NEXUS ("Catalogar · Preparar · Distribuir") — confirmado comparando o clone local órfão `~/GitHub/PKGL-personal-knowledge-governance-layer` (remote aponta pro `1-AI-DECISION-LAB` extinto, mas o conteúdo do README já é literalmente o NEXUS). PKGL foi renomeado/evoluído para NEXUS; o CONOPS do DataHunter nunca foi atualizado após essa transição.
 
-Ação: formalizar ADRs retroativas antes ou durante a revisão do CONOPS.
+Gap (revisado): item 11 ("Integração com PKGL — Sinais de Confronto") não é uma lacuna de handoff humano isolada — é uma **referência a um componente que não existe mais com esse nome**. Toda a arquitetura de integração downstream do DataHunter (§1.2, §2.1, §3.2-3.4, §6, §9.3, §11 inteiro, §12-13, §17.5, §19.1, §21.1-Q03) é modelada em torno do PKGL. Decisão necessária: renomear as referências para NEXUS mantendo o conceito de "Sinais de Confronto", ou tratar como integração genuinamente distinta (se o time decidiu que DataHunter fala com um sucessor específico do PKGL diferente do NEXUS atual). Tratar como ADR — é uma decisão arquitetural, não um ajuste de texto.
+
+Também "AIT Standard" (linha 6, 65, 100, 219, roadmap Fase 0/Histórico de Versões) e 3 variantes do nome antigo da org ("1-AI-DECISION-LAB", "AI-DECISION-LAB", "AI Decision Lab") aparecem no README — herdados do mesmo template. O template-fonte já foi corrigido (`ECOSSISTEMA.md` reduzido a ponteiro, termo renomeado para "ACO Component Layer Model") — falta propagar a correção para o README/CONOPS do DataHunter.
+
+Ação: (1) corrigir nomenclatura da org e "AIT Standard" no README; (2) decidir e documentar via ADR o destino da integração PKGL→NEXUS; (3) formalizar ADRs retroativas para as demais decisões já implementadas no código.
 
 ### 5. Hydra
 Sem `docs/`, sem CONOPS, sem ADRs — só README (visão/produto, robusto). Camada: Operational Intelligence (observabilidade cognitiva, LLMOps, AgentOps, FinOps, auditoria, drift, qualidade).
