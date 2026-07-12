@@ -16,11 +16,18 @@ A ACO endereça isso com um conjunto de componentes modulares e independentes, e
 
 Este README é a porta de entrada da arquitetura: o que já está rodando, como as peças se conectam, e por que o modelo de governança-como-infraestrutura é a próxima fronteira além de "só criar mais um agente".
 
-### Escopo e fontes normativas
+## Documentação normativa da ACO
 
-Este README apresenta a visão executiva da **Arquitetura Cognitiva Operacional — ACO**, seus componentes, responsabilidades predominantes e forma de composição.
+Este README apresenta a visão executiva do ecossistema. A especificação arquitetural, os contratos cross-component, as RFCs, os schemas compartilhados, as decisões normativas e as regras de conformidade estão no repositório **ACO Cognitive Architecture**.
 
-A especificação arquitetural normativa da ACO — incluindo contratos cross-component, RFCs, Architecture Decision Records, schemas compartilhados e regras de conformidade — está mantida no repositório [ACO Cognitive Architecture](https://github.com/1-AI-Ecosystem-Lab/aco-cognitive-architecture).
+- [ACO Cognitive Architecture](https://github.com/1-AI-Ecosystem-Lab/aco-cognitive-architecture)
+- [Índice da arquitetura normativa](https://github.com/1-AI-Ecosystem-Lab/aco-cognitive-architecture/blob/main/docs/03-arquitetura/README.md)
+- [ADRs transversais](https://github.com/1-AI-Ecosystem-Lab/aco-cognitive-architecture/tree/main/docs/03-arquitetura/decisoes)
+- [ACO-ADR-0004 — ACO Interop Envelope](https://github.com/1-AI-Ecosystem-Lab/aco-cognitive-architecture/blob/main/docs/03-arquitetura/decisoes/ADR-0004-aco-interop-envelope.md)
+- [ACO-ADR-0006 — ACO Identity Context](https://github.com/1-AI-Ecosystem-Lab/aco-cognitive-architecture/blob/main/docs/03-arquitetura/decisoes/ADR-0006-aco-identity-context.md)
+- [Mapa ADR → componente → implementação e estados de adoção](https://github.com/1-AI-Ecosystem-Lab/aco-cognitive-architecture/blob/main/docs/03-arquitetura/README.md#mapa-adr--componente--implementação)
+- [Regras de conformidade dos componentes](https://github.com/1-AI-Ecosystem-Lab/aco-cognitive-architecture/blob/main/docs/03-arquitetura/README.md#regras-de-conformidade-dos-componentes)
+- [Plano de revisão e conformidade dos CONOPS](https://github.com/1-AI-Ecosystem-Lab/.github/blob/main/docs/CONOPS-REVIEW-PLAN.md)
 
 Em caso de divergência entre uma descrição resumida deste README e uma decisão arquitetural ratificada, prevalece a decisão registrada no repositório de arquitetura. Os CONOPS, ADRs locais, requisitos e documentos de implementação de cada componente complementam a arquitetura transversal sem substituí-la.
 
@@ -40,7 +47,6 @@ A ACO responde a sete limitações estruturais identificadas em arquiteturas de 
 | **Aprendizado finito e sistema passivo** — o conhecimento gerado numa interação se perde ao final dela, e o sistema não evolui nem melhora decisões com o próprio uso | **NEXUS** trata conhecimento como objeto com lifecycle e proveniência, consolidando memória episódica em semântica, procedural e organizacional — e vai além do armazenamento: cria e publica novos artefatos para consumo ativo por agentes e humanos futuros |
 | **Falta de governança e visibilidade sobre a abordagem neural dentro do raciocínio** — não é só "quem usou o quê", é como componentes neurais influenciam a decisão internamente | **Hydra** cobre observabilidade cognitiva, LLMOps, AgentOps, FinOps, auditoria, drift e qualidade — tornando essa influência rastreável e auditável, em vez de uma caixa-preta |
 | **Acesso fragmentado e inteligência acoplada à interface** — a interação humana fica ilhada em chats locais, dificultando a omnicanalidade e a governança de contexto | O **Horizon** atua como Hub de Experiência centralizado (Thin Client), desacoplando a interface da orquestração e garantindo que humanos, sistemas e bots acessem as capacidades cognitivas sob regras unificadas |
-
 
 ### De IHM para IHIAM
 
@@ -118,7 +124,7 @@ Esses critérios operam sobre uma cadeia maior, que atravessa toda a arquitetura
 | Cognitive Continuity Layer | [NEXUS](https://github.com/1-AI-Ecosystem-Lab/Nexus-congnitive-continuity-infraestructure) | Memória viva: cria e publica conhecimento (semântico, procedural e organizacional) com lifecycle e proveniência, para consumo de agentes e humanos | ativo |
 | Operational Intelligence Layer | [Hydra](https://github.com/1-AI-Ecosystem-Lab/hydra) | Observabilidade cognitiva, LLMOps, AgentOps, FinOps, auditoria, drift e qualidade | em desenvolvimento |
 
-> **Referência arquitetural:** responsabilidades transversais, autoridades de domínio e contratos de interoperabilidade entre os componentes são definidos no repositório [ACO Cognitive Architecture](https://github.com/1-AI-Ecosystem-Lab/aco-cognitive-architecture).
+> **Referência arquitetural:** responsabilidades transversais, autoridades de domínio e contratos de interoperabilidade entre os componentes são definidos no [índice da arquitetura normativa](https://github.com/1-AI-Ecosystem-Lab/aco-cognitive-architecture/blob/main/docs/03-arquitetura/README.md).
 
 ### Componentes independentes, adoção incremental
 
@@ -219,6 +225,7 @@ A 1-AI-Ecosystem-Lab constrói uma arquitetura para:
 ### Arquitetura transversal
 
 - [ACO Cognitive Architecture](https://github.com/1-AI-Ecosystem-Lab/aco-cognitive-architecture)
+- [Índice da arquitetura normativa](https://github.com/1-AI-Ecosystem-Lab/aco-cognitive-architecture/blob/main/docs/03-arquitetura/README.md)
 - [ADRs transversais da ACO](https://github.com/1-AI-Ecosystem-Lab/aco-cognitive-architecture/tree/main/docs/03-arquitetura/decisoes)
 - [ACO-ADR-0004 — ACO Interop Envelope](https://github.com/1-AI-Ecosystem-Lab/aco-cognitive-architecture/blob/main/docs/03-arquitetura/decisoes/ADR-0004-aco-interop-envelope.md)
 - [ACO-ADR-0006 — ACO Identity Context](https://github.com/1-AI-Ecosystem-Lab/aco-cognitive-architecture/blob/main/docs/03-arquitetura/decisoes/ADR-0006-aco-identity-context.md)
@@ -234,7 +241,7 @@ A 1-AI-Ecosystem-Lab constrói uma arquitetura para:
 
 ### Governança documental
 
-- [Plano de revisão dos CONOPS](https://github.com/1-AI-Ecosystem-Lab/.github/blob/main/docs/CONOPS-REVIEW-PLAN.md)
+- [Plano de revisão e conformidade dos CONOPS](https://github.com/1-AI-Ecosystem-Lab/.github/blob/main/docs/CONOPS-REVIEW-PLAN.md)
 
 ### Componentes com documentação em evolução
 
