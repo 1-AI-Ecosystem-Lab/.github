@@ -1,0 +1,53 @@
+name: Update ACO ADR links once
+
+on:
+  pull_request:
+    branches:
+      - main
+    paths:
+      - "profile/README.md"
+      - ".github/workflows/update-aco-links-once.yml"
+
+permissions:
+  contents: write
+
+jobs:
+  update-links:
+    if: github.head_ref == 'docs/canonical-aco-adr-links' && github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout feature branch
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.head_ref }}
+
+      - name: Update canonical ADR links
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+
+          path = Path("profile/README.md")
+          text = path.read_text(encoding="utf-8")
+          replacements = {
+              "docs/03-arquitetura/decisoes/ADR-0004-aco-interop-envelope.md":
+                  "docs/03-arquitetura/decisoes/ACO-ADR-0004-aco-interop-envelope.md",
+              "docs/03-arquitetura/decisoes/ADR-0006-aco-identity-context.md":
+                  "docs/03-arquitetura/decisoes/ACO-ADR-0006-aco-identity-context.md",
+          }
+          for old, new in replacements.items():
+              text = text.replace(old, new)
+          path.write_text(text, encoding="utf-8")
+          PY
+
+      - name: Publish updated README to technical branch
+        run: |
+          if git diff --quiet; then
+            echo "No README changes required."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git checkout -B automation/canonical-aco-readme
+          git add profile/README.md
+          git commit -m "docs: atualizar links canônicos dos ADRs ACO"
+          git push --force origin automation/canonical-aco-readme
