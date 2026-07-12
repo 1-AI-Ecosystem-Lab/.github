@@ -15,20 +15,53 @@
 | DIR | `dir-dynamic-inference-routing` | Cognitive Decision | em desenvolvimento |
 | Hydra | `hydra` | Operational Intelligence | em desenvolvimento |
 
+## Arquitetura Transversal do ACO (fonte: `aco-cognitive-architecture`)
+
+**Fato novo (2026-07-11):** o repositório [`aco-cognitive-architecture`](https://github.com/1-AI-Ecosystem-Lab/aco-cognitive-architecture), pasta `docs/03-arquitetura`, contém **15 ADRs ratificados (Aceito)** com impacto transversal — obrigatórios para todos os componentes, não apenas orientação. README e CONOPS de cada projeto passam a ter um **terceiro critério de conformidade**, além do alinhamento com o próprio README da org: alinhamento com estas decisões cross-component.
+
+| ADR (aco) | Decisão | Vincula |
+|---|---|---|
+| ADR-0001 | Evolution Governance Record + protocolo de interop como contrato obrigatório entre componentes | todos |
+| ADR-0002 | Taxonomia de autoevolução (§6 da RFC-0001) como ontologia obrigatória de classificação | todos que classificam tarefas/agentes (ARGO, DIR) |
+| ADR-0003 | Critério de escopo: quando uma decisão de componente exige RFC/ADR cross-component da ACO | todos — usar antes de aceitar qualquer ADR local |
+| ADR-0004 | **ACO Interop Envelope** como contrato obrigatório entre componentes (`governance_metadata`/`security_context`/`payload`) | todos que trocam mensagens entre componentes |
+| ADR-0005 | Contrato de exportação mínimo do Hydra como interface obrigatória (adoção opcional por tenant) | Hydra (dono) + todos que exportam evidência |
+| ADR-0006 | **ACO Identity Context** como contrato obrigatório de identidade cross-component | todos que propagam identidade/roles entre componentes |
+| ADR-0007 | Autoevolução como capacidade transversal, não componente monolítico | todos |
+| ADR-0008 | Forge como autoridade de publicação de artefatos executáveis | Forge (dono) + todos que publicam artefatos |
+| ADR-0009 | Hydra como autoridade de evidência, avaliação e rollback | Hydra (dono) + todos que fazem autoevolução |
+| ADR-0010 | Evolução produtiva exige rollout progressivo e regressão contínua | todos que fazem autoevolução |
+| ADR-0011 | Separação entre memória episódica, reflexão, conhecimento e procedimento | NEXUS (dono) |
+| ADR-0012 | NEXUS como autoridade de curadoria na fronteira de reutilização de memória (gate sempre HITL) | NEXUS (dono) + todos que reutilizam memória |
+| ADR-0013 | Políticas críticas não podem ser autoalteradas pelo agente que elas governam | ARGO (policy engine), DIR (validation policy) |
+| ADR-0014 | Agentic Workstream como objeto compartilhado, **Horizon como dono** | Horizon (dono) + ARGO (produz workstream) |
+| ADR-0015 | Tipologia de casos de uso de sistemas cognitivos autoevolutivos como taxonomia oficial | todos |
+
+> Nota de numeração: ADR-0012 e ADR-0014 desta arquitetura **não** têm relação com o ADR-0012 e ADR-0014 do Horizon (`open-webui-custom`) — são numerações independentes em repositórios distintos.
+
 ## Status geral por projeto
 
-| Projeto | CONOPS | ADRs reais | Ação |
-|---|---|---|---|
-| NEXUS | ✅ 22/22 — baseline | 19 | Nenhuma — referência |
-| Horizon | ✅ 22/22 | 6 | Fora deste plano — revisão de ADRs (dono: Marco) |
-| ARGO | ⚠️ 20/22, gaps estruturais | 20 | Revisão completa |
-| DIR | ✅ 22/22, o mais profundo (2032 linhas) | 3 (+ naming inconsistente) | Revisão completa (foco leve) |
-| OR-OmniRouter | ⚠️ 23/22, seções rasas | 20+ | Revisão completa |
-| DataHunter | ⚠️ 22/22, item 11 sem handoff humano | 0 (só template) | Revisão completa + formalizar ADRs |
-| Hydra | ❌ sem `docs/`, sem CONOPS | 0 (sem `docs/`) | Criar estrutura do zero |
-| Forge | ❌ sem `docs/`, sem CONOPS | 0 (sem `docs/`) | Criar estrutura do zero |
+| Projeto | CONOPS | ADRs reais | Conformidade ACO transversal | Ação |
+|---|---|---|---|---|
+| NEXUS | ✅ 22/22 — baseline | 19 | dono de ADR-0011/0012 — checar se já refletidos localmente | Nenhuma — referência |
+| Horizon | ✅ 22/22 | 6 (+ 2 em Proposta) | **pendências concretas mapeadas** — ver seção dedicada abaixo | Aplicar `RECONCILIACAO-HORIZON.md` |
+| ARGO | ⚠️ 20/22, gaps estruturais | 20 | checar ADR-0002/0013 (policy engine) e ADR-0014 (produz workstream) | Revisão completa + Tarefa 0 |
+| DIR | ✅ 22/22, o mais profundo (2032 linhas) | 3 (+ naming inconsistente) | checar ADR-0002/0013 (validation/fallback policy) | Revisão completa (foco leve) + Tarefa 0 |
+| OR-OmniRouter | ⚠️ 23/22, seções rasas | 20+ | checar ADR-0004/0006 (interop/identity entre providers) | Revisão completa + Tarefa 0 |
+| DataHunter | ⚠️ 22/22, item 11 sem handoff humano | 0 (só template) | checar ADR-0012 (reuso de memória/curadoria, se integra com NEXUS) | Revisão completa + formalizar ADRs + Tarefa 0 |
+| Hydra | ❌ sem `docs/`, sem CONOPS | 0 (sem `docs/`) | **dono de ADR-0005/0009** — CONOPS deve nascer já alinhado | Criar estrutura do zero + Tarefa 0 |
+| Forge | ❌ sem `docs/`, sem CONOPS | 0 (sem `docs/`) | **dono de ADR-0008** — CONOPS deve nascer já alinhado | Criar estrutura do zero + Tarefa 0 |
 
-## Checklist padrão (4 tarefas, aplicada a cada projeto)
+## Checklist padrão (5 tarefas, aplicada a cada projeto)
+
+### Tarefa 0 — Conformidade com a arquitetura transversal do ACO
+- [ ] Componente usa o **ACO Interop Envelope** (ADR-0004) ao trocar mensagens com outros componentes, ou declara explicitamente por que não se aplica ainda
+- [ ] Componente propaga identidade via **ACO Identity Context** (ADR-0006) quando age em nome de outro ator, ou declara escopo local sem propagação
+- [ ] Se o componente classifica tarefas/agentes, usa a taxonomia de autoevolução do ADR-0002/ADR-0015 (não inventa taxonomia própria)
+- [ ] Se o componente tem políticas críticas (ex.: policy engine, validation policy), confirma que elas não são autoalteráveis pelo agente que governam (ADR-0013)
+- [ ] Se o componente faz autoevolução/atualização de comportamento, usa rollout progressivo + regressão contínua (ADR-0010)
+- [ ] Se o componente exporta evidência/observabilidade, usa o contrato mínimo do Hydra (ADR-0005), sem obrigação de expor dados brutos
+- [ ] Nenhuma decisão local contradiz um ADR transversal Aceito — se contradiz, aplicar o critério de escopo do ADR-0003 (aco) para decidir se precisa de RFC/ADR cross-component
 
 ### Tarefa 1 — Consistência do README
 - [ ] Nome canônico usado (conforme tabela acima)
@@ -103,11 +136,22 @@ Ação: mesmos 3 passos de Hydra.
 4. **OR-OmniRouter** — corrigir nome desatualizado "AIT" + aprofundar seção de Handoff
 5. **DIR** — já é o mais completo; revisão de naming/alinhamento apenas
 
+## Horizon — pendências concretas (fonte: `RECONCILIACAO-HORIZON.md`)
+
+CONOPS considerado ok; a pendência de "revisar os ADRs" **não é genérica** — já existe um documento pronto (`aco-cognitive-architecture/docs/03-arquitetura/decisoes/RECONCILIACAO-HORIZON.md`, rascunhado em 2026-07-11, ainda não aplicado no repo do Horizon) com o texto exato de cada nota de reconciliação. Nenhuma decisão já Aceita do Horizon é invalidada — são pontes declaradas, sem retrabalho.
+
+- [ ] **ADR-0003** (Protocolo Interno de Agentes / Gateway MCP) — colar nota: o HIP permanece intacto; ao comunicar com outro componente ACO, a mensagem trafega dentro do ACO Interop Envelope (`core_payload` do HIP ocupa `payload.body`)
+- [ ] **ADR-0004** (Persistência de Logs de Observabilidade e Soberania) — colar nota: arquitetura dual (OTel + tabelas relacionais) continua fonte de verdade local; habilitar opcionalmente o contrato de exportação mínimo do Hydra (sinais agregados `evolution`/`cost`/`quality`, nunca dados brutos) para cumprir a promessa do CONOPS §3 sobre o Hydra
+- [ ] **ADR-0006** (Medição de Redução de Repetição / FinOps) — colar nota: `tokens_avoided`/`cost_estimate` já calculados mapeiam direto para o campo `cost` do contrato de exportação do Hydra, sem recálculo
+- [ ] **ADR-0012** (Gestão de Identidade, SSO e Cofre Local — ainda **Status Proposta**, seção de Decisão vazia) — **intervenção preventiva**: ao preencher a decisão, declarar como o IdP escolhido traduz identidade local para o `aco_identity_context` (actor_type, actor_id, tenant_id, roles, provenance, delegation_chain) e como trata `delegation_chain` para agentes agindo em nome de usuários (cenário já previsto no CONOPS §8)
+- [ ] **ADR-0014** (Stack de Observabilidade Técnica e Tracing — ainda **Status Proposta**, seção de Decisão vazia) — ao preencher a decisão, declarar se/como os traces técnicos alimentam o Hydra como sinal `quality` do contrato de exportação
+
+Responsabilidade de aplicação: equipe do Horizon (Marco). Este plano não altera o repositório do Horizon.
+
 ## Fora de escopo deste plano
 
-- **NEXUS** — considerado baseline, sem revisão necessária
-- **Horizon** — CONOPS considerado ok; pendência isolada é a revisão de ADRs, tratada separadamente
+- **NEXUS** — considerado baseline, sem revisão necessária (mas é dono de ADR-0011/ADR-0012 da arquitetura transversal — vale checar se já refletidos localmente)
 
 ---
 
-*Gerado a partir de análise comparativa dos 8 repositórios da org em 2026-07-09.*
+*Gerado a partir de análise comparativa dos 8 repositórios da org em 2026-07-09. Atualizado em 2026-07-11 com a camada de conformidade transversal do `aco-cognitive-architecture`.*
