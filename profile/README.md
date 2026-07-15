@@ -22,6 +22,7 @@ Este README apresenta a visão executiva do ecossistema. A especificação arqui
 
 - [ACO Cognitive Architecture](https://github.com/1-AI-Ecosystem-Lab/aco-cognitive-architecture)
 - [Índice da arquitetura normativa](https://github.com/1-AI-Ecosystem-Lab/aco-cognitive-architecture/blob/main/docs/03-arquitetura/README.md)
+- [RFC-0000 — Integração Nativa do Ecossistema ACO](https://github.com/1-AI-Ecosystem-Lab/aco-cognitive-architecture/blob/main/docs/03-arquitetura/rfc/RFC-0000-Integracao-Nativa-Ecossistema-ACO.md)
 - [ADRs transversais](https://github.com/1-AI-Ecosystem-Lab/aco-cognitive-architecture/tree/main/docs/03-arquitetura/decisoes)
 - [ACO-ADR-0004 — ACO Interop Envelope](https://github.com/1-AI-Ecosystem-Lab/aco-cognitive-architecture/blob/main/docs/03-arquitetura/decisoes/ACO-ADR-0004-aco-interop-envelope.md)
 - [ACO-ADR-0006 — ACO Identity Context](https://github.com/1-AI-Ecosystem-Lab/aco-cognitive-architecture/blob/main/docs/03-arquitetura/decisoes/ACO-ADR-0006-aco-identity-context.md)
@@ -226,6 +227,7 @@ A 1-AI-Ecosystem-Lab constrói uma arquitetura para:
 
 - [ACO Cognitive Architecture](https://github.com/1-AI-Ecosystem-Lab/aco-cognitive-architecture)
 - [Índice da arquitetura normativa](https://github.com/1-AI-Ecosystem-Lab/aco-cognitive-architecture/blob/main/docs/03-arquitetura/README.md)
+- [RFC-0000 — Integração Nativa do Ecossistema ACO](https://github.com/1-AI-Ecosystem-Lab/aco-cognitive-architecture/blob/main/docs/03-arquitetura/rfc/RFC-0000-Integracao-Nativa-Ecossistema-ACO.md)
 - [ADRs transversais da ACO](https://github.com/1-AI-Ecosystem-Lab/aco-cognitive-architecture/tree/main/docs/03-arquitetura/decisoes)
 - [ACO-ADR-0004 — ACO Interop Envelope](https://github.com/1-AI-Ecosystem-Lab/aco-cognitive-architecture/blob/main/docs/03-arquitetura/decisoes/ACO-ADR-0004-aco-interop-envelope.md)
 - [ACO-ADR-0006 — ACO Identity Context](https://github.com/1-AI-Ecosystem-Lab/aco-cognitive-architecture/blob/main/docs/03-arquitetura/decisoes/ACO-ADR-0006-aco-identity-context.md)
